@@ -1,0 +1,10 @@
+# Log files
+*.log
+*.txt
+logs/
+
+# screenshot
+screenshot.png
+venv/
+private.py
+__pycache__/
