@@ -34,12 +34,8 @@ class RealtimeAgent:
             conversations=conversations,
             user_prompt=prompt,
             current_time=self.tell_current_time_and_date(),
-            weather_data=self.current_weather_data(),
-            news_data=self.get_news()
+            weather_data=self.current_weather_data()
         )
-    
-    def renderTime(self,prompt):
-        pass
     
     def validate_response(self, response: str):
         response = response.text.strip("`json \n")
@@ -53,8 +49,8 @@ class RealtimeAgent:
 
             return (response["response"], response["command"])
 
-    def execute(self,user_prompt,conversations="",last_response=""):
-        prompt = self.render(prompt=user_prompt, conversations=conversations, last_response=last_response)
+    def execute(self,prompt,conversations="",last_response=""):
+        prompt = self.render(prompt=prompt, conversations=conversations, last_response=last_response)
 
         response = self.llm.inference(prompt)
         
@@ -67,8 +63,6 @@ class RealtimeAgent:
         response = "I'm sorry, I don't understand"
         if valid_response:
             response, command = valid_response
-            if command == "1":
-                self.llm.inference(prompt)
             if command == "3":
                 response = self.get_news()
         else:
