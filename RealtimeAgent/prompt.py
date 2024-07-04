@@ -39,7 +39,7 @@ class RealtimeAgent:
     
     def validate_response(self, response: str):
         response = response.text.strip("`json \n")
-        if "response" not in response or "command" not in response:
+        if "response" not in response or "command" not in response or "address" not in response:
             return False
         else:
             response = json.loads(response)
@@ -47,7 +47,7 @@ class RealtimeAgent:
             if response["response"] == "" or response["command"] == "" or not response["command"].isdigit():
                 return False
 
-            return (response["response"], response["command"])
+            return (response["response"], response["command"], response["address"])
 
     def execute(self,prompt,conversations="",last_response=""):
         prompt = self.render(prompt=prompt, conversations=conversations, last_response=last_response)

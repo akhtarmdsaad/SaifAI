@@ -22,9 +22,13 @@ Your response must be in the following format:
 ```json
 {
     "response": "< Your Response here >",
-    "command": "< command no [1/2/3] >"
+    "command": "< command no [1/2/3] >",
+    "address": "< address or city the user is pointing to >"
 }
 ```
 User's prompt: {{user_prompt}}
 
-Any response other than the following format will be rejected by the software.
+Rules:
+ - Any response other than the following format will be rejected by the software.
+ - if user doesn't specify address, keep it blank - "".
+ - address should contain one word only. e.g. "Delhi"
