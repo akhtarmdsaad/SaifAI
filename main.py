@@ -8,7 +8,8 @@ from TaskAgent.prompt import TaskAgent
 from RealtimeAgent.prompt import RealtimeAgent
 
 from tools.md2text import markdown_to_text
-from tools.speech_reco import takeCommand
+# from tools.speech_reco import takeCommand
+from tools.offline_speech_reco import takeCommand
 from tools.speak import speak 
 from tools.take_screenshot import take_screenshot
 import PIL.Image 

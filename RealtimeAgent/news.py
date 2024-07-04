@@ -8,12 +8,16 @@ class News:
     def get(self):
         return requests.get(self.url).json()
     
+    def get_articles(self):
+        return self.get()["articles"]
+    
     def get_top_5_articles(self):
-        return self.get()["articles"][:5]
+        articles = self.get_articles()
+        return articles[:5]
     
     def structured_string_to_speak(self):
-        data = self.get_top_5_articles()
-        string = "Here are the top 5 articles of the day:\n"
+        data = self.get_articles()
+        string = ""
         for article in data:
             string += f"{article['title']}\n"
         return string

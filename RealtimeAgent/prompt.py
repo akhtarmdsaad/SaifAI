@@ -34,20 +34,21 @@ class RealtimeAgent:
             conversations=conversations,
             user_prompt=prompt,
             current_time=self.tell_current_time_and_date(),
-            weather_data=self.current_weather_data()
+            weather_data=self.current_weather_data(),
+            news_headlines=self.get_news()
         )
     
     def validate_response(self, response: str):
         response = response.text.strip("`json \n")
-        if "response" not in response or "command" not in response or "address" not in response:
+        if "response" not in response:
             return False
         else:
             response = json.loads(response)
 
-            if response["response"] == "" or response["command"] == "" or not response["command"].isdigit():
+            if response["response"] == "":
                 return False
 
-            return (response["response"], response["command"], response["address"])
+            return (response["response"])
 
     def execute(self,prompt,conversations="",last_response=""):
         prompt = self.render(prompt=prompt, conversations=conversations, last_response=last_response)
@@ -56,17 +57,4 @@ class RealtimeAgent:
         
         valid_response = self.validate_response(response)
 
-        # commands
-        # 1. tell current time and date
-        # 2. tell current weather   
-        # 3. tell current news
-        response = "I'm sorry, I don't understand"
-        if valid_response:
-            response, command = valid_response
-            if command == "3":
-                response = self.get_news()
-        else:
-            print("response is not valid")
-            print(valid_response)
-
-        return response
+        return valid_response
