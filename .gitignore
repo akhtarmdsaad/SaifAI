@@ -2,9 +2,12 @@
 *.log
 *.txt
 logs/
+llm_logs/
+notes/
 
 # screenshot
 screenshot.png
 venv/
 private.py
 __pycache__/
+practice/

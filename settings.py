@@ -1,2 +1,2 @@
 SCREENSHOT_FILENAME = "screenshot.png"
-DO_FROM_IMAGE = False
+AUDIO_FILENAME = "speak_bro.mp3"

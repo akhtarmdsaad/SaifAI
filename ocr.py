@@ -1,9 +1,8 @@
-import time
 import cv2
 import pytesseract
 from settings import SCREENSHOT_FILENAME 
 import logging
-from take_screenshot import take_screenshot
+from tools.take_screenshot import take_screenshot
 
 logging.basicConfig(filename='app.log.txt', filemode='a+', format='%(asctime)s - %(levelname)s - %(message)s')
 
