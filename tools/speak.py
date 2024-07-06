@@ -1,4 +1,5 @@
 import os
+import subprocess
 from gtts import gTTS
 from settings import AUDIO_FILENAME
 import time
@@ -32,10 +33,14 @@ def validate(text):
             valids += (character)
     return (valids)
 
-def speak(text):
+def speak(text, open_subprocess=False):
     # engine = Engine()
     # engine.say(text)
-    os.system("say "+validate(text))
+    if open_subprocess:
+        # opens an independent shell without hampering code flow 
+        subprocess.Popen(["say", validate(text)])
+    else:
+        os.system("say "+validate(text))
 
 if __name__ == '__main__':
     speak("Hello Saad, How are you, 1234@34#$")

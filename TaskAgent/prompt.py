@@ -1,15 +1,71 @@
 
+from datetime import datetime
 import json
 from jinja2 import BaseLoader, Environment
+import requests
 from TaskAgent.tasks import Tasks
 from private import TODOIST_API_KEY
 
 PROMPT = open("TaskAgent/prompt.jinja2", "r").read().strip()
 
+def sorting_key(x):
+    x=x[:11].split(" ")
+    s="".join(x[0].split(":"))
+    n=0#12
+    if "p" in x[1]:
+        n=120000
+    if s[:2] != "12":
+        return int(s)+n
+    else:
+        if "a" in x[1]:
+            return int(s)
+        return int(s)
+
+
+def convert_time_to_datetime(time_str):
+    # Use strptime to parse the time string
+    time_format = "%I:%M:%S %p"  # Format for hours:minutes:seconds AM/PM
+    datetime_obj = datetime.strptime(time_str, time_format)
+    return datetime_obj
+
+
+def get_current_key(l):
+    now=datetime.now()
+    time_format = "%I:%M:%S %p"
+    now=convert_time_to_datetime(now.strftime(time_format))
+    #s=f"{now.hour}{now.minute}{now.hour}"
+    for time in l:
+        start,end=time.split(" to ")
+        start=convert_time_to_datetime(start)
+        end=convert_time_to_datetime(end)
+        if now >= start and now < end:
+            return time
+    return time
+
+
 class TaskAgent:
     def __init__(self,llm) -> None:
         self.llm = llm
         self.task_agent = Tasks(TODOIST_API_KEY)
+
+        # copy ru=outine from ~/bin/routine.json
+        url = "https://routine-4f824-default-rtdb.asia-southeast1.firebasedatabase.app/routine.json"
+        self.routine = json.loads(requests.get(url).text)
+
+        # filter json into dict 
+
+        self.keys=list(self.routine.keys())
+        self.keys.sort(key=lambda x: sorting_key(x))
+
+        sorted_dict = {i: self.routine[i] for i in self.keys}
+        self.routine = sorted_dict
+
+
+
+    def get_tasks(self):
+        # return only titles 
+        tasks = self.task_agent.get_tasks()
+        return [task["title"] for task in tasks]
     
     
     def render(self,conversations:str,prompt:str,last_response):
@@ -18,7 +74,8 @@ class TaskAgent:
         return template.render(
             conversations=conversations,
             user_prompt=prompt,
-            list_of_tasks=self.task_agent.get_tasks(),
+            list_of_tasks=self.get_tasks(),
+            routine=self.routine,
         )
     
     def validate_response(self, response: str):

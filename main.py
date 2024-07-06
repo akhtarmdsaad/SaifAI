@@ -4,12 +4,12 @@ from HelperAgent.prompt import HelperAgent
 from NoteTakerAgent.prompt import NoteTakerAgent
 from DirectionAgent.prompt import DirectionAgent
 from ChatterAgent.prompt import ChatterAgent
+from BrowserAgent.prompt import BrowserAgent
 from TaskAgent.prompt import TaskAgent
 from RealtimeAgent.prompt import RealtimeAgent
 
 from tools.md2text import markdown_to_text
-# from tools.speech_reco import takeCommand
-from tools.offline_speech_reco import takeCommand
+from tools.speech_reco import takeCommand, takeVoskCommand
 from tools.speak import speak 
 from tools.take_screenshot import take_screenshot
 import PIL.Image 
@@ -26,30 +26,35 @@ last_response = ""
 # changing its order also affects the below implementation of code.
 agents_dict = {
     "chatter": ChatterAgent(LLM()),
-    "screen-helper":HelperAgent(LLM()),
+    "screen-reader":HelperAgent(LLM()),
     "note-taker":NoteTakerAgent(LLM()),
     "task-agent":TaskAgent(LLM()),
-    "realtime-agent":RealtimeAgent(LLM())
+    "realtime-agent":RealtimeAgent(LLM()),
+    "browser-agent":BrowserAgent(LLM())
 }
 
 assert sorted(agent.agents_list) == sorted(agents_dict), "All agents present in direction agent should match in main too"
 
 speak("Ready, Please tell your query")
+agents_list = list(agents_dict)    
 while True:
-    user_prompt = takeCommand()
+    user_prompt = takeVoskCommand()
     if not user_prompt:
         continue
+    print(user_prompt)
+    speak("hmm",open_subprocess=True)
 
     
-    agent_name = agent.execute(user_prompt, conversation=conversations)
-    # speak("response forwarded to " + agent_name)
+    agent_name, response, agent_prompt = agent.execute(user_prompt, conversation=conversations)
+    # speak("response forwarded to " + agent_name, open_subprocess=True)
     print("response forwarded to " + agent_name)
-    response = agents_dict[agent_name].execute(conversations=conversations, last_response=last_response, prompt=user_prompt)
+    print("prompt given  to agent:", agent_prompt)
+    if agent_name != agents_list[0]:
+        response = agents_dict[agent_name].execute(conversations=conversations, last_response=last_response, prompt=agent_prompt)
     
     if not response:
         continue
 
-    agents_list = list(agents_dict)    
     reply = "No reply"
     if agent_name == agents_list[0]:
         reply = response

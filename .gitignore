@@ -2,13 +2,14 @@
 *.log
 *.txt
 logs/
-llm_logs/
+llm_log*
 notes/
 
 # screenshot
-screenshot.png
+*screenshot.png
 venv/
 private.py
 __pycache__/
 practice/
 todo.md
+test.py

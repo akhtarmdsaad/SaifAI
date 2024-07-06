@@ -1,0 +1,1378 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Automatic Irrigation System Using Android
+</title><meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="format-detection" content="telephone=no" /><meta name="robots" content="all" /><link href="/favicon.ico" rel="shortcut icon" /><meta name="MSSmartTagsPreventParsing" content="True" /><meta http-equiv="MSThemeCompatible" content="Yes" />
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" /><link href="../css/font-awesome.min.css" rel="stylesheet" /><link href="../css/styletwo.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Poppins:300,500,600,700,800" rel="stylesheet" />
+    <script src="../js/modernizr.js" type="text/javascript"></script>
+
+
+    
+
+
+
+    
+    <link rel="alternate" type="application/pdf" title="PDF Full-Text" href="//www.scirp.org/pdf/OALibJ_2018041115345261.pdf" />
+
+    
+    <link rel="alternate" type="text/html" title="HTML Full-Text" href="//www.scirp.org/journal/paperinformation?paperid=83708" />
+    
+    <link rel="alternate" type="text/xml" title="XML Full-Text" href="//www.scirp.org/xml/83708.xml" />
+    
+    <link rel="canonical" href="//www.scirp.org/journal/paperinformation?paperid=83708" />
+
+
+<meta property="og:site_name" content="SCIRP" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.scirp.org/journal/paperinformation?paperid=83708" />
+<meta property="og:title" content="Automatic Irrigation System Using Android" />
+
+
+<meta property="og:image" content="https://file.scirp.org/image/OALibJ2016030109584288.jpg" />
+<meta property="og:image:secure_url" content="https://file.scirp.org/image/OALibJ2016030109584288.jpg" />
+
+
+
+
+
+ <script type="text/javascript">
+
+     var ajaxj = {
+         tryList: function () {
+             var xhrj = null;
+             for (var i = 0; i < arguments.length; i++) {
+                 var lambda = arguments[i];
+                 try { xhrj = lambda(); break; } catch (e) { }
+             }
+             return xhrj;
+         },
+         init: function () {
+             return this.tryList(
+         function () { return new ActiveXObject('MSXML2.XMLHttp.6.0'); },
+         function () { return new ActiveXObject('MSXML2.XMLHttp.3.0'); },
+         function () { return new XMLHttpRequest(); },
+         function () { return new ActiveXObject('MSXML2.XMLHttp.5.0'); },
+         function () { return new ActiveXObject('MSXML2.XMLHttp.4.0'); },
+         function () { return new ActiveXObject('Msxml2.XMLHTTP'); },
+         function () { return new ActiveXObject('MSXML.XMLHttp'); },
+         function () { return new ActiveXObject('Microsoft.XMLHTTP'); }
+         ) || null;
+         },
+         post: function (sUrl, sArgs, bAsync, fCallBack, errmsg) {
+             var xhrj = this.init();
+             xhrj.onreadystatechange = function () {
+                 if (xhrj.readyState == 4) {
+
+                     if (xhrj.responseText) {
+                         if (fCallBack.constructor == Function) { fCallBack(xhrj); }
+                     } else {
+
+                     }
+                 }
+             };
+             xhrj.open('POST', encodeURI(sUrl), bAsync);
+
+             xhrj.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+             xhrj.send(sArgs);
+         },
+         get: function (sUrl, bAsync, fCallBack, errmsg) {
+             var xhrj = this.init();
+             xhrj.onreadystatechange = function () {
+                 if (xhrj.readyState == 4) {
+                     if (xhrj.responseText) {
+                         if (fCallBack.constructor == Function) { fCallBack(xhrj); }
+                     } else {
+
+                     }
+                 }
+             };
+             xhrj.open('GET', encodeURI(sUrl), bAsync);
+             xhrj.send('Null');
+         }
+     }
+
+     function RndNum(n) {
+         var rnd = "";
+         for (var i = 0; i < n; i++)
+             rnd += Math.floor(Math.random() * 10);
+         return rnd;
+     }
+
+     function SetNum(item) {
+         var url = "//www.scirp.org/journal/senddownloadnum";
+         var args = "paperid=" + item;
+         url = url + "?" + args + "&rand=" + RndNum(4);
+         window.setTimeout("show('" + url + "')", 3000);
+     }
+
+
+     function show(url) {
+         var callback = function (xhrj) { }
+         ajaxj.get(url, true, callback, "try");
+     }
+
+
+        </script>
+
+        <script type="text/javascript">
+            var ajax2 = {//xmlhttp request
+                tryList: function () {
+                    var xhr2 = null;
+                    for (var i = 0; i < arguments.length; i++) {
+                        var lambda = arguments[i];
+                        try { xhr2 = lambda(); break; } catch (e) { }
+                    }
+                    return xhr2;
+                },
+                init: function () {
+                    return this.tryList(
+                        function () { return new ActiveXObject('MSXML2.XMLHttp.6.0'); },
+                        function () { return new ActiveXObject('MSXML2.XMLHttp.3.0'); },
+                        function () { return new XMLHttpRequest(); },
+                        function () { return new ActiveXObject('MSXML2.XMLHttp.5.0'); },
+                        function () { return new ActiveXObject('MSXML2.XMLHttp.4.0'); },
+                        function () { return new ActiveXObject('Msxml2.XMLHTTP'); },
+                        function () { return new ActiveXObject('MSXML.XMLHttp'); },
+                        function () { return new ActiveXObject('Microsoft.XMLHTTP'); }
+                        ) || null;
+                },
+                post: function (sUrl, sArgs, bAsync, fCallBack, errmsg) {
+                    var xhr2 = this.init();
+                    xhr2.onreadystatechange = function () {
+                        if (xhr2.readyState == 4) {
+                            if (xhr2.responseText) {
+                                if (fCallBack.constructor == Function) { fCallBack(xhr2); }
+                            } else {
+                                //alert(errmsg);
+                            }
+                        }
+                    };
+                    xhr2.open('POST', encodeURI(sUrl), bAsync);
+                    xhr2.setRequestHeader('Content-Length', sArgs.length);
+                    xhr2.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr2.send(sArgs);
+                },
+                get: function (sUrl, bAsync, fCallBack, errmsg) {
+                    var xhr2 = this.init();
+                    xhr2.onreadystatechange = function () {
+                        if (xhr2.readyState == 4) {
+                            if (xhr2.responseText) {
+                                if (fCallBack.constructor == Function) { fCallBack(xhr2); }
+                            } else {
+                                alert(errmsg);
+                            }
+                        }
+                    };
+                    xhr2.open('GET', encodeURI(sUrl), bAsync);
+                    xhr2.send('Null');
+                }
+            }
+
+
+
+
+            function SetSearchLink(item) {
+
+                var url = "../journal/recordsearchinformation";
+                var skid = $(":hidden[id$=HiddenField_SKID]").val();
+                var args = "skid=" + skid;
+                url = url + "?" + args + "&urllink=" + item;
+                window.setTimeout("showSearchUrl('" + url + "')", 300);
+            }
+
+            function showSearchUrl(url) {
+                var callback2 = function (xhr2) { }
+
+                ajax2.get(url, true, callback2, "try");
+            }
+
+        </script>
+
+
+
+
+
+<meta name="title" content="Automatic Irrigation System Using Android" />
+<meta name="keywords" content="Irrigation System,Raspberry Pi,Soil Moisture Sensor,Temperature Sensor,Android Application" />
+<meta name="description" content="Laos is an agricultural based country. As agriculture is the main source of food for any country, it is important to have a proper irrigation system. This paper shows a design of automatic irrigation system based on android application using Raspberry Pi microcontroller, soil moisture and temperature sensor to help a famer to control and monitor a farm. This work facilitates the farm irrigation by switching the pump motor ON/OFF through android cell phone. This automatic irrigation system has a low cost and can be affordable by many Lao farmers. The study shows that the system is useful to provide optimal amount of water for increase the productivity of crop." />
+<meta name="citation_journal_title" content="Open Access Library Journal" />
+<meta name="citation_publisher" content="Scientific Research Publishing" />
+<meta name="citation_authors" content="Souvanxay Lorvanleuang;Yandong Zhao" />
+<meta name="citation_author" content="Souvanxay Lorvanleuang" />
+<meta name="citation_author" content="Yandong Zhao" />
+<meta name="citation_title" content="Automatic Irrigation System Using Android" />
+<meta name="citation_volume" content="5" />
+<meta name="citation_date" content="2018-04-04" />
+<meta name="citation_year" content="2018" />
+<meta name="citation_doi" content="10.4236/oalib.1104503" />
+<meta name="citation_issnPrint" content="2333-9705" />
+<meta name="citation_issnOnline" content="2333-9721" />
+<meta name="citation_abstract" content="Laos is an agricultural based country. As agriculture is the main source of food for any country, it is important to have a proper irrigation system. This paper shows a design of automatic irrigation system based on android application using Raspberry Pi microcontroller, soil moisture and temperature sensor to help a famer to control and monitor a farm. This work facilitates the farm irrigation by switching the pump motor ON/OFF through android cell phone. This automatic irrigation system has a low cost and can be affordable by many Lao farmers. The study shows that the system is useful to provide optimal amount of water for increase the productivity of crop." />
+<meta name="citation_publication_date" content="2018/4/4" />
+<meta name="citation_pdf_url" content="http://www.scirp.org/journal/PaperDownload.aspx?paperID=83708" />
+<meta name="fulltext_pdf" content="http://www.scirp.org/journal/PaperDownload.aspx?paperID=83708" />
+<meta name="citation_abstract_html_url" content="http://www.scirp.org/Journal/Paperabs.aspx?paperid=83708" />
+<meta name="citation_fulltext_html_url" content="http://www.scirp.org/journal/PaperInformation.aspx?PaperID=83708" />
+<meta name="fulltext_html" content="http://www.scirp.org/journal/PaperInformation.aspx?PaperID=83708" />
+<meta name="citation_xml_url" content="http://www.scirp.org/xml/83708.xml" />
+<meta name="fulltext_xml" content="http://www.scirp.org/xml/83708.xml" />
+<meta name="citation_issue" content="4" />
+<meta name="citation_online_date" content="2018/4/4" />
+<meta name="citation_firstpage" content="1" />
+<meta name="citation_lastpage" content="7" />
+
+<meta name="dc.title" content="Automatic Irrigation System Using Android" />
+
+<meta name="dc.creator" content="Souvanxay Lorvanleuang" />
+<meta name="dc.creator" content="Yandong Zhao" /><meta name="dcterms.issued" content="2018-04-04" />
+<meta name="dc.description" content="Laos is an agricultural based country. As agriculture is the main source of food for any country, it is important to have a proper irrigation system. This paper shows a design of automatic irrigation system based on android application using Raspberry Pi microcontroller, soil moisture and temperature sensor to help a famer to control and monitor a farm. This work facilitates the farm irrigation by switching the pump motor ON/OFF through android cell phone. This automatic irrigation system has a low cost and can be affordable by many Lao farmers. The study shows that the system is useful to provide optimal amount of water for increase the productivity of crop." />
+<meta name="dc.source" content="Open Access Library Journal" />
+<meta name="dc.format" content="text/html" />
+<meta name="dc.publisher" content="Scientific Research Publishing" />
+<meta name="dc.date" content="2018-04-04" />
+<meta name="dc.type" content="Article" />
+<meta name="dc.identifier" content="doi:10.4236/oalib.1104503" />
+<meta name="dc.language" content="en" />
+<meta name="dc.issued" content="2018-04-04" />
+<meta name="prism.issnPrint" content="2333-9705" />
+<meta name="prism.issnOnline" content="2333-9721" />
+<meta name="prism.publicationName" content="Open Access Library Journal" />
+<meta name="prism.publicationDate" content="2018-04-04" />
+<meta name="prism.volume" content="5" />
+<meta name="prism.number" content="4" />
+<meta name="prism.section" content="Article" />
+<meta name="prism.startingPage" content="1" />
+<meta name="prism.doi" content="10.4236/oalib.1104503" />
+<meta name="Author" content="Scientific Research Publishing" />
+<meta name="dc.rights" scheme="DCTERMS.URI" content="http://creativecommons.org/licenses/by/4.0/" />
+<meta name="dc.rights" content="(c) 2015 by author(s) and Scientific Research Publishing Inc." /></head>
+<body>
+    <form method="post" action="./paperinformation?paperid=83708" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUHLTQwNjA0MQ9kFgJmD2QWBGYPZBYCAlEPFgQeBG5hbWUFDmRjdGVybXMuaXNzdWVkHgdjb250ZW50BQoyMDE4LTA0LTA0ZAIBD2QWCgIDD2QWAmYPZBYCZg8PZBYCHgpvbmtleXByZXNzBZ0BaWYoZXZlbnQua2V5Q29kZT09MTMpe2RvY3VtZW50LmFsbC5Vc2VyQ29udHJvbF9zZWFyY2hfY29tbW9uX2J0blNlYXJjaDIuZm9jdXMoKTtkb2N1bWVudC5hbGwuVXNlckNvbnRyb2xfc2VhcmNoX2NvbW1vbl9idG5TZWFyY2gyLmNsaWNrKCk7ICAgcmV0dXJuICAgZmFsc2U7fWQCBA9kFgICAQ9kFhRmDxYCHgVzdHlsZQUrY29sb3I6Z3JheTtmb250LXdlaWdodDpub3JtYWw7RGlzcGxheTpOb25lO2QCAQ8WAh4EVGV4dAX+ATxhIGhyZWY9J2FydGljbGVzP3NlYXJjaGNvZGU9U291dmFueGF5KytMb3J2YW5sZXVhbmcmc2VhcmNoZmllbGQ9YXV0aG9ycyZwYWdlPTEnIHRhcmdldD0nX2JsYW5rJz5Tb3V2YW54YXkgIExvcnZhbmxldWFuZzwvYT48c3VwPio8L3N1cD4sIDxhIGhyZWY9J2FydGljbGVzP3NlYXJjaGNvZGU9WWFuZG9uZysrWmhhbyZzZWFyY2hmaWVsZD1hdXRob3JzJnBhZ2U9MScgdGFyZ2V0PSdfYmxhbmsnPllhbmRvbmcgIFpoYW88L2E+PHN1cD48L3N1cD4gZAICD2QWAmYPFgIfBAXhATxhIGhyZWY9J2FydGljbGVzP3NlYXJjaGNvZGU9U2Nob29sK29mK1RlY2hub2xvZ3klMmMrQmVpamluZytGb3Jlc3RyeStVbml2ZXJzaXR5JTJjK0JlaWppbmclMmMrQ2hpbmEmc2VhcmNoZmllbGQ9YWZmcyZwYWdlPTEmc2tpZD0wJyB0YXJnZXQ9J19ibGFuayc+U2Nob29sIG9mIFRlY2hub2xvZ3ksIEJlaWppbmcgRm9yZXN0cnkgVW5pdmVyc2l0eSwgQmVpamluZywgQ2hpbmE8L2E+LjxiciAvPmQCBQ8WAh8EBQUyLDY2M2QCBg8WAh8EBQYxNSwwMjJkAgcPFgIfAwUPRGlzcGxheTppbmxpbmU7ZAIID2QWAgIBDxYCHwQF5gQ8YSBocmVmPSdhcnRpY2xlcz9zZWFyY2hjb2RlPUlycmlnYXRpb24rU3lzdGVtJnNlYXJjaGZpZWxkPWtleXdvcmQmcGFnZT0xJnNraWQ9MCcgdGFyZ2V0PSdfYmxhbmsnPklycmlnYXRpb24gU3lzdGVtPC9hPiwgPGEgaHJlZj0nYXJ0aWNsZXM/c2VhcmNoY29kZT0rUmFzcGJlcnJ5K1BpJnNlYXJjaGZpZWxkPWtleXdvcmQmcGFnZT0xJnNraWQ9MCcgdGFyZ2V0PSdfYmxhbmsnPiBSYXNwYmVycnkgUGk8L2E+LCA8YSBocmVmPSdhcnRpY2xlcz9zZWFyY2hjb2RlPStTb2lsK01vaXN0dXJlK1NlbnNvciZzZWFyY2hmaWVsZD1rZXl3b3JkJnBhZ2U9MSZza2lkPTAnIHRhcmdldD0nX2JsYW5rJz4gU29pbCBNb2lzdHVyZSBTZW5zb3I8L2E+LCA8YSBocmVmPSdhcnRpY2xlcz9zZWFyY2hjb2RlPStUZW1wZXJhdHVyZStTZW5zb3Imc2VhcmNoZmllbGQ9a2V5d29yZCZwYWdlPTEmc2tpZD0wJyB0YXJnZXQ9J19ibGFuayc+IFRlbXBlcmF0dXJlIFNlbnNvcjwvYT4sIDxhIGhyZWY9J2FydGljbGVzP3NlYXJjaGNvZGU9K0FuZHJvaWQrQXBwbGljYXRpb24mc2VhcmNoZmllbGQ9a2V5d29yZCZwYWdlPTEmc2tpZD0wJyB0YXJnZXQ9J19ibGFuayc+IEFuZHJvaWQgQXBwbGljYXRpb248L2E+IGQCCg8WAh8EBf0BTG9ydmFubGV1YW5nLCBTLiAgYW5kIFpoYW8sIFkuICAgKDIwMTgpIEF1dG9tYXRpYyBJcnJpZ2F0aW9uIFN5c3RlbSBVc2luZyBBbmRyb2lkLiA8aT5PcGVuIEFjY2VzcyBMaWJyYXJ5IEpvdXJuYWw8L2k+LCA8Yj41PC9iPiwgMS03LiBkb2k6IDxhIGhyZWY9J2h0dHBzOi8vZG9pLm9yZy8xMC40MjM2L29hbGliLjExMDQ1MDMnIHRhcmdldD0nX2JsYW5rJyBvbmNsaWNrPSdTZXROdW0oODM3MDgpJz4xMC40MjM2L29hbGliLjExMDQ1MDM8L2E+LmQCCw8WAh8EBS1UaGUgYXV0aG9ycyBkZWNsYXJlIG5vIGNvbmZsaWN0cyBvZiBpbnRlcmVzdC5kAg0PFgIeC18hSXRlbUNvdW50Ag0WGmYPZBYCZg8VBFNbPGEgaHJlZj0nLi4vcmVmZXJlbmNlL3JlZmVyZW5jZXNwYXBlcnM/cmVmZXJlbmNlaWQ9MjI1MDYwMycgdGFyZ2V0PSdfYmxhbmsnPjE8L2E+XQExATEkaHR0cDovL2NvdW50cnlzdHVkaWVzLnVzL2xhb3MvNDUuaHRtZAIBD2QWAmYPFQRTWzxhIGhyZWY9Jy4uL3JlZmVyZW5jZS9yZWZlcmVuY2VzcGFwZXJzP3JlZmVyZW5jZWlkPTIyNTA2MDQnIHRhcmdldD0nX2JsYW5rJz4yPC9hPl0BMgEyV2h0dHA6Ly93d3cubmF0aW9uc2VuY3ljbG9wZWRpYS5jb20vZWNvbm9taWVzL0FzaWEtYW5kLXRoZS1QYWNpZmljL0xhb3MtQUdSSUNVTFRVUkUuaHRtbGQCAg9kFgJmDxUEU1s8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjA1JyB0YXJnZXQ9J19ibGFuayc+MzwvYT5dATMBM50BU3VwcmFiaGEsIEouIGFuZCBTaGFpbGVzaCwgSC4gKDIwMTQpIEFuZHJvaWQgYmFzZWQgQXV0b21hdGVkIElycmlnYXRpb24gU3lzdGVtIHVzaW5nIFJhc3BiZXJyeSBQaS4gSW50ZXJuYXRpb25hbCBKb3VybmFsIG9mIFNjaWVuY2UgYW5kIFJlc2VhcmNoLCA1LCBJc3N1ZSA2LmQCAw9kFgJmDxUEU1s8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjA2JyB0YXJnZXQ9J19ibGFuayc+NDwvYT5dATQBNKEBQmhhZ3lhc2hyZWUsIEsuLCBDaGF0ZSBhbmQgUmFuYSwgSi5HLiAoMjAxNikgU21hcnQgSXJyaWdhdGlvbiBTeXN0ZW0gVXNpbmcgUmFzcGJlcnJ5IFBpLiBJbnRlcm5hdGlvbmFsIFJlc2VhcmNoIEpvdXJuYWwgb2YgRW5naW5lZXJpbmcgYW5kIFRlY2hub2xvZ3ksIDMsIElzc3VlIDVkAgQPZBYCZg8VBFNbPGEgaHJlZj0nLi4vcmVmZXJlbmNlL3JlZmVyZW5jZXNwYXBlcnM/cmVmZXJlbmNlaWQ9MjI1MDYwNycgdGFyZ2V0PSdfYmxhbmsnPjU8L2E+XQE1ATXdAU1haGVzaCwgQS4gUmVkZHksIFJhZ2hhdmEgUmFvLCBLLiAoMjAxNikgQW4gQW5kcm9pZCBiYXNlZCBBdXRvbWF0aWMgSXJyaWdhdGlvbiBTeXN0ZW0gVXNpbmcgYSBXU04gYW5kIEdQUlMgTW9kdWxlLiBJbmRpYW4gSm91cm5hbCBvZiBTY2llbmNlIGFuZCBUZWNobm9sb2d5LCA5LCBJc3N1ZSAzMC4gPGJyLz5odHRwczovL2RvaS5vcmcvMTAuMTc0ODUvaWpzdC8yMDE2L3Y5aTMwLzk4NzE5ZAIFD2QWAmYPFQRTWzxhIGhyZWY9Jy4uL3JlZmVyZW5jZS9yZWZlcmVuY2VzcGFwZXJzP3JlZmVyZW5jZWlkPTIyNTA2MDgnIHRhcmdldD0nX2JsYW5rJz42PC9hPl0BNgE21gFHYXZhbGksIE0uUy4sIERodXMsIEIuSi4gYW5kIFZpdGVrYXIsIEEuQi4gKDIwMTYpIEEgU21hcnQgSXJyaWdhdGlvbiBTeXN0ZW0gZm9yIEFncmljdWx0dXJlIEJhc2Ugb24gV2lyZWxlc3MgU2Vuc29ycy4gSW50ZXJuYXRpb25hbCBKb3VybmFsIG9mIElubm92YXRpdmUgUmVzZWFyY2ggaW4gU2NpZW5jZSwgRW5naW5lZXJpbmcgYW5kIFRlY2hub2xvZ3ksIDUsIElzc3VlIDUuZAIGD2QWAmYPFQRTWzxhIGhyZWY9Jy4uL3JlZmVyZW5jZS9yZWZlcmVuY2VzcGFwZXJzP3JlZmVyZW5jZWlkPTIyNTA2MDknIHRhcmdldD0nX2JsYW5rJz43PC9hPl0BNwE3tgFIYXJpc2hhbmthciwgUy4sIEt1bWFyLCBSLlMuLCBTdWRoYXJzYW4sIEsuUC4sIFZpZ25lc2gsIFUuIGFuZCBWaXZla25hdGgsIFQuICgyMDE0KSBTb2xhciBQb3dlcmVkIFNtYXJ0IElycmlnYXRpb24gU3lzdGVtLiBBZHZhbmNlIGluIEVsZWN0cm9uaWMgYW5kIEVsZWN0cmljIEVuZ2luZWVyaW5nLCA0LCAzNDEtMzQ2LmQCBw9kFgJmDxUEU1s8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjEwJyB0YXJnZXQ9J19ibGFuayc+ODwvYT5dATgBOJwBSmFkaGF2LCBTLiBhbmQgSGFtYmFyZGUsIEguICgyMDE2KSBBbmRyb2lkIEJhc2VkIEF1dG9tYXRlZCBJcnJpZ2F0aW9uIFN5c3RlbSB1c2luZyBSYXNzcGJlcnJ5IFBpLiBJbnRlcm5hdGlvbmFsIEpvdXJuYWwgb2YgU2NpZW5jZSBhbmQgUmVzZWFyY2gsIDUsIElzc3VlIDYuZAIID2QWAmYPFQRTWzxhIGhyZWY9Jy4uL3JlZmVyZW5jZS9yZWZlcmVuY2VzcGFwZXJzP3JlZmVyZW5jZWlkPTIyNTA2MTEnIHRhcmdldD0nX2JsYW5rJz45PC9hPl0BOQE51wFBdGEsIFMuUi4gKDIwMTYpIFdlYiBCYXNlZCBBdXRvbWF0aWMgSXJyaWdhdGlvbiBTeXN0ZW0gVXNpbmcgV2lyZWxlc3MgU2Vuc29yIE5ldHdvcmsgYW5kIEVtYmVkZGVkIExpbnV4IEJvYXJkLiBJbnRlcm5hdGlvbmFsIEpvdXJuYWwgb2YgQWR2YW5jZW1lbnQgaW4gRW5naW5lZXJpbmcgVGVjaG5vbG9neSBNYW5hZ2VtZW50ICYgQXBwbGllZCBTY2llbmNlLCAzLCBJc3N1ZSAyLmQCCQ9kFgJmDxUEVFs8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjEyJyB0YXJnZXQ9J19ibGFuayc+MTA8L2E+XQIxMAIxMLgBUGFyYW1lc3dhcmFuLCBHLiBhbmQgU2l2YXByYXNhdGgsIEsuICgyMDE2KSBBcmR1aW5vIEJhc2VkIFNtYXJ0IERyaXAgSXJyaWdhdGlvbiBTeXN0ZW0gVXNpbmcgSW50ZXJuZXQgb2YgVGhpbmdzLiBJbnRlcm5hdGlvbmFsIEpvdXJuYWwgb2YgRW5naW5lZXJpbmcgU2NpZW5jZSBhbmQgQ29tcHV0aW5nLCA2LCBJc3N1ZSA1LmQCCg9kFgJmDxUEVFs8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjEzJyB0YXJnZXQ9J19ibGFuayc+MTE8L2E+XQIxMQIxMZ8BUm9oaXQsIFMuLCBBbHNoeSwgUy4gYW5kIFJvaGl0LCBULiAoMjAxNikgU21hcnQgSXJyaWdhdGlvbiBTeXN0ZW0gVXNpbmcgTW9iaWxlIFBob25lLiBJbnRlcm5hdGlvbmFsIFJlc2VhcmNoIEpvdXJuYWwgb2YgRW5naW5lZXJpbmcgYW5kIFRlY2hub2xvZ3ksIDMsIElzc3VlIDQuZAILD2QWAmYPFQRUWzxhIGhyZWY9Jy4uL3JlZmVyZW5jZS9yZWZlcmVuY2VzcGFwZXJzP3JlZmVyZW5jZWlkPTIyNTA2MTQnIHRhcmdldD0nX2JsYW5rJz4xMjwvYT5dAjEyAjEybGh0dHA6Ly93d3cuZ29vZGx1Y2tidXkuY29tL3RwLWxpbmstdGwtd2RyMzMyMC02MDBtLTItNC01Z2h6LWR1YWwtYmFuZC13aXJlbGVzcy1uZXR3b3JrLXJvdXRlci00LWFudGVubmEuaHRtbGQCDA9kFgJmDxUEVFs8YSBocmVmPScuLi9yZWZlcmVuY2UvcmVmZXJlbmNlc3BhcGVycz9yZWZlcmVuY2VpZD0yMjUwNjE1JyB0YXJnZXQ9J19ibGFuayc+MTM8L2E+XQIxMwIxMzhodHRwczovL2VuLndpa2lwZWRpYS5vcmcvd2lraS9BbmRyb2lkXyhvcGVyYXRpbmdfc3lzdGVtKWQCCA9kFgQCBw8WAh8DBQ1EaXNQbGF5Ok5vbmU7ZAIIDxYCHwMFDURpc1BsYXk6Tm9uZTtkAgsPZBYCZg8WAh4HVmlzaWJsZWdkAgwPZBYCAgEPZBYCAgEPZBYCAgMPEA8WBh4NRGF0YVRleHRGaWVsZAUJU2hvcnROYW1lHg5EYXRhVmFsdWVGaWVsZAUJSm91cm5hbElEHgtfIURhdGFCb3VuZGdkEBWAAg5TZWxlY3QgSm91cm5hbAJBQQNBQUQDQUFSBkFBU29jaQRBQVNUA0FCQgNBQkMEQUJDUgRBQ0VTA0FDUwNBQ1QCQUQDQURSAkFFA0FFUgNBSFMDQUlEA0FpTQNBSVQEQUpBQwNBSkMEQUpDQwRBSkNNBUFKSUJNBEFKTUIEQUpPUgRBSlBTBUFMQU1UA0FMQwNBTFMCQU0DQU1JBEFNUEMDQU5QA0FQRANBUEUDQVBNA0FSUwVBUlNjaQJBUwNBU00DQkxSAkNDAkNFB0NlbGxCaW8GQ2huU3RkAkNNA0NNQgJDTgRDUkNNAkNTBENTVEEDQ1VTBUNXRUVFCURldGVjdGlvbgRFTUFFA0VORwNFUEUERVRTTgRGTUFSA0ZOUwNHRVADR0lTAkdNCEdyYXBoZW5lA0dTQwZIZWFsdGgCSUIDSUNBA0lJTQRJSkFBBklKQU1TQwVJSkNDRQRJSkNNBUlKQ05TA0lKRwVJSklEUwRJSklTBklKTU5UQQhJSk1QQ0VSTwRJSk5NBElKT0MGSUpPSE5TC0luZnJhTWF0aWNzBUpBQ0VOBEpBTVAFSkFTTUkESkJCUwVKQkNQUgVKQmlTRQNKQk0ESkJOQgRKQlBDA0pDQwVKQ0RTQQRKQ1BUA0pDVAVKREFJUANKRE0ESkVBUwVKRUNUQwVKRU1BQQNKRVAFSkZDTVYESkZSTQRKR0lTBkpIRVBHQwVKSFJTUwZKSUJUVkEFSklMU0EDSklTA0pNRgZKTUdCTkQFSk1NQ0UDSk1QBEpQRUUESlFJUwRKU0JTBEpTRUEGSlNFTUFUBEpTSVADSlNTBEpTU00DSlNUA0pUUgRKVFNUBEpUVHMFSldBUlADTENFAk1DAk1FAk1JA01NRQVNTlNNUwNNUFMCTVIDTVJDA01SSQNNU0EETVNDRQROSkdDAk5NAk5SAk5TBU9BTGliBk9BTGliSgRPREVNA09KQQRPSkFCBk9KQWNjdAZPSkFuZXMET0pBUAVPSkFwbwZPSkFwcFMFT0pBUHIET0pBUwRPSkJEB09KQklQSFkET0pCTQNPSkMET0pDQgRPSkNEBE9KQ0UET0pDTQNPSkQFT0pEZXIET0pETQNPSkUET0pFRQRPSkVNBU9KRU1EBU9KRXBpBE9KRVIDT0pGBE9KRkQDT0pHBU9KR2FzBU9KR2VuA09KSQRPSklDBE9KSU0FT0pJTk0DT0pMA09KTQRPSk1DB09KTWV0YWwET0pNSARPSk1JBU9KTUlQBE9KTUwET0pNTQRPSk1OBE9KTVAET0pNUwVPSk1TaQNPSk4GT0pOZXBoA09K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" />
+
+
+<script src="/ScriptResource.axd?d=6Fsu1XEe260F9iZJdf0CcKz-duSjrTsvtKee0KvjAoslbRyOj7dJ9HMfTV5Zosxmjwnnuv3HZ9KxZ91GanliWw-DgrkTNKRG_uhMqyR7ngukwbjhMAfE7hyW9K4Bih1hZ0j5F2pYeoUpS2IOEDpopLzg-PWL-cDr0bR3-PW-WxS-7oNDYcQI9ulfq72QkVtN0&amp;t=2fe674eb" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D21FCB0F" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+
+
+        
+
+        
+
+
+
+
+<header>
+    <div class="container row clearfix center-block">
+        <div class="col-sm-8 col-xs-9 column" style="padding: 10px 0;"><a href="//www.scirp.org" title="SCIRP - An Academic Publisher" target="_blank">
+            <img src="../images/SRP_logo.svg" height="50"></a>
+        </div>
+        <div class="col-sm-3 col-xs-3 column text-center" style="padding: 20px 0;">
+            <a href="/journal/openaccess" title="OPEN ACCESS" target="_blank">
+                <img src="../images/Open-Access.svg" height="30"></a>
+        </div>
+        <div class="col-sm-1 col-xs-2 column visible-lg visible-md visible-sm " style="padding: 20px 0;">
+            <a href="https://papersubmission.scirp.org/login.jsp" target="_blank" title="Login">
+                <button type="button" class="btn btn-default btn-xs" style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; padding: 0 15px; border: #2f2f2f 1px solid; border-radius: 5px; float: right;">Login</button></a>
+        </div>
+    </div>
+</header>
+
+
+<nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 10px;">
+    <div class="container container-fluid center-block">
+        <div class="navbar-header">
+            <a href="https://papersubmission.scirp.org/login.jsp" target="_blank" ><button type="button" class="btn btn-xs btn-default navbar-brand visible-xs" style="width: 80px; height: 30px; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin: 10px; padding: 0 15px; border-radius: 5px;">Login</button></a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        
+
+
+
+
+<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    <ul class="nav navbar-nav" style="font-size: 18px;">
+        <li><a href="../" target="_top">Home</a></li>
+        <li><a href="../journal/articles" target="_top">Articles</a></li>
+        <li><a href="../journal/" target="_top">Journals</a></li>
+        <li><a href="../book/" target="_top">Books</a></li>
+        <li><a href="../news/" target="_top">News</a></li>
+        <li><a href="../aboutus/" target="_top">About</a></li>
+        <li><a href="../author/" target="_top">Services</a></li>
+        <li><a href="//papersubmission.scirp.org/login.jsp?sub=true" target="_blank">Submit</a></li>
+    </ul>
+</div>
+
+
+    </div>
+</nav>
+
+
+
+        <div class="container-fluid link_here" style="margin-bottom: 15px;">
+            <div class="row container center-block clearfix" style="padding: 0;">
+
+                <!--页面导航栏-->
+                <div class="col-md-7 column" style="padding: 0;">
+                    
+<ul class="breadcrumb">
+        <li><i class="fa fa-home" style="color: #d71318;"></i>&nbsp;&nbsp;<a href="../index">Home</a></li>
+        <li><a href="index">Journals</a></li>
+        <li class="active">Article</li>
+    </ul>
+
+                </div>
+
+                <!--搜索框-->
+                <div class="col-md-5 column">
+                    <div class="" style="padding: 5px 0;">
+                        <div id="UserControl_search_common_Panel2">
+	
+    <div class="form-inline search2">
+        <input name="ctl00$UserControl_search_common$TextBox_searchCode2" type="text" value="Search Title, Keywords, Author, etc." id="UserControl_search_common_TextBox_searchCode2" class="input2" onFocus="return ClearSearchCondition2();" onBlur="return ShowSearchCondition2();" onkeypress="if(event.keyCode==13){document.all.UserControl_search_common_btnSearch2.focus();document.all.UserControl_search_common_btnSearch2.click();   return   false;}" style="height: 28px;" />
+        <button class="btn-md btn_or" type="button">
+          <input type="submit" name="ctl00$UserControl_search_common$btnSearch2" value=" " id="UserControl_search_common_btnSearch2" style="width:25px; height:25px; background: none; border:none;background-image: url(../Images/search001.png);  " />  
+        </button>
+        
+
+    </div>
+
+    <script type="text/javascript">
+        function ClearSearchCondition2() {
+            var text2 = document.getElementById('UserControl_search_common_TextBox_searchCode2').value;
+            if (text2 == "Search Title, Keywords, Author, etc.")
+            { document.getElementById('UserControl_search_common_TextBox_searchCode2').value = ""; }
+        }
+
+        function ShowSearchCondition2() {
+            var text2 = document.getElementById('UserControl_search_common_TextBox_searchCode2').value;
+                if (text2 == "")
+                { document.getElementById('UserControl_search_common_TextBox_searchCode2').value = "Search Title, Keywords, Author, etc."; }
+            }
+
+
+            function checkLog() {
+
+                var keywords = document.getElementById("UserControl_search_common_TextBox_searchCode2").value;  //关键字
+
+            if (trim(keywords) == "") {
+                alert('Please enter keywords!');
+                return false;
+            }
+
+            if (trim(keywords) == "Search Title, Keywords, Author, etc.") {
+                alert('Please enter keywords!');
+                return false;
+            }
+
+            return true;
+        }
+
+        //除去左右空格
+        function trim(string) {
+            return string.replace(/(^\s*)|(\s*$)/g, "");
+        }
+
+
+    </script>
+
+</div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row clearfix">
+
+                <div class="col-md-9 column col-md-push-3">
+                    <div class="clearfix con_main" style="margin-bottom: 10px; padding-left: 15px; padding-right: 15px;">
+                        
+       
+
+<div id="JournalInfor_div_nav_journal" class="column up_link1 clearfix" style="padding: 0;">
+            <div class="col-md-9 col-sm-8 txt7">
+                <a href="journalarticles?journalid=2463" title="Open Access Library Journal">
+                    Open Access Library Journal</a> &gt; <a href="home?issueid=10841#83708">Vol.5 No.4, April 2018</a>
+            </div>
+            </div>
+
+    <div id="JournalInfor_div_paper" class="articles_main">
+            <div class="art_title" style="text-align:left;">
+                Automatic Irrigation System Using Android <span id="JournalInfor_reviewpaper_show" style="color:gray;font-weight:normal;Display:None;">()</span>
+            </div>
+            
+        <div style="float: left; width: 100%; margin-top: 5px; margin-bottom: 10px;">
+                <a href='articles?searchcode=Souvanxay++Lorvanleuang&searchfield=authors&page=1' target='_blank'>Souvanxay  Lorvanleuang</a><sup>*</sup>, <a href='articles?searchcode=Yandong++Zhao&searchfield=authors&page=1' target='_blank'>Yandong  Zhao</a><sup></sup> 
+                <br />
+                <span id="JournalInfor_div_affs"><a href='articles?searchcode=School+of+Technology%2c+Beijing+Forestry+University%2c+Beijing%2c+China&searchfield=affs&page=1&skid=0' target='_blank'>School of Technology, Beijing Forestry University, Beijing, China</a>.<br /></span>
+               
+                <span id="JournalInfor_showDOI" style="clear: left;"><b>DOI: </b><a href="https://doi.org/10.4236/oalib.1104503"
+                    target="_blank" onclick='SetNum(83708)'>10.4236/oalib.1104503</a></span>&nbsp;&nbsp;
+                      
+                <a href="//www.scirp.org/pdf/OALibJ_2018041115345261.pdf" target="_blank" style="font-size: 14px; font-weight: bold;" onclick='SetNum(83708)'>
+                    PDF</a>
+            &nbsp;&nbsp;&nbsp;<span style="font-size: 14px; font-weight: bold;"><a href='//www.scirp.org/journal/paperinformation?paperid=83708' target='_blank'>HTML</a></span>&nbsp;&nbsp;<span style="font-size: 14px; font-weight: bold;"> <a href='//www.scirp.org/xml/83708.xml' target='_blank' onclick='SetNum(83708)' >XML</a></span>&nbsp;&nbsp;
+                <span style="font-weight: bold; color: Red;">
+                    2,663</span>
+                <span style="color: #535353;">Downloads</span>&nbsp;&nbsp;<span style="font-weight: bold; color: Red;">
+                    15,022</span>
+                <span style="color: #535353;">Views</span>&nbsp;&nbsp;
+                <span id="JournalInfor_span_citations" style="Display:inline;"><a href='papercitationdetails?paperid=83708&JournalID=2463' target="_blank"><span style="text-decoration: underline;">Citations</span></a></span>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <p style="font-weight: bold; font-size: 16px;"><a name="abstract" style="color: #2f2f2f;">Abstract</a></p>
+                <p style="text-align:left;"><span style="line-height:1.5;text-align:justify;white-space:normal;">Laos is an agricultural based country. As agriculture is the main source of food for any country, it is important to have a proper irrigation system. This paper shows a design of automatic irrigation system based on android application using Raspberry Pi microcontroller, soil moisture and temperature sensor to help a famer to control and monitor a farm. This work facilitates the farm irrigation by switching the pump motor ON/OFF through android cell phone. This automatic irrigation system has a low cost and can be affordable by many Lao farmers. The study shows that the system is useful to provide optimal amount of water f</span><span style="line-height:1.5;text-align:justify;white-space:normal;">or increase the productivity of crop.</span></p>
+            </div>
+
+            <div id="JournalInfor_div_showkeywords" style="margin-bottom: 10px;">
+                <p style="font-weight: bold; font-size: 16px;">Keywords</p>
+                <p><a href='articles?searchcode=Irrigation+System&searchfield=keyword&page=1&skid=0' target='_blank'>Irrigation System</a>, <a href='articles?searchcode=+Raspberry+Pi&searchfield=keyword&page=1&skid=0' target='_blank'> Raspberry Pi</a>, <a href='articles?searchcode=+Soil+Moisture+Sensor&searchfield=keyword&page=1&skid=0' target='_blank'> Soil Moisture Sensor</a>, <a href='articles?searchcode=+Temperature+Sensor&searchfield=keyword&page=1&skid=0' target='_blank'> Temperature Sensor</a>, <a href='articles?searchcode=+Android+Application&searchfield=keyword&page=1&skid=0' target='_blank'> Android Application</a> </p>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <p style="font-size: 16px; font-weight: bold;">Share and Cite: </p>
+                <div id="JournalInfor_div_share">   
+                  <!-- AddToAny BEGIN -->
+
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_sina_weibo"></a>
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+</div>
+<script type="text/javascript" async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+                    
+
+                                      
+                </div>
+                <div style="margin-top: 10px; text-align:left;">
+                    Lorvanleuang, S.  and Zhao, Y.   (2018) Automatic Irrigation System Using Android. <i>Open Access Library Journal</i>, <b>5</b>, 1-7. doi: <a href='https://doi.org/10.4236/oalib.1104503' target='_blank' onclick='SetNum(83708)'>10.4236/oalib.1104503</a>.
+                </div>
+            </div>
+            <div style="margin-top:10px;" id="htmlContent">
+                           
+<p><img src="//html.scirp.org/file/2-1410169x6.png" /></p> 
+<p class="E-Title1">1. Introduction</p> 
+<p>We live in a world where everything can be controlled and operated automatically, but there are still a few important sectors in Laos where automation has not been adopted or not been put to a full-fledged use, perhaps because of several reasons such as cost. In Laos, agriculture is among those sectors. Agriculture has been one of the primary occupations of man since early civilizations and even today manual interventions in farming are inevitable.</p> 
+<p>Laos has a tropical monsoon climate, with a pronounced rainy season from May through October, a cool dry season from November through February, and a hot dry season in March and April. Generally, monsoons occur at the same time across the country, although that time may vary significantly from one year to the next [1] .</p> 
+<p>Laos is primarily an agricultural economy, with this sector contributing 51 percent of the GDP. Approximately 1,880,000 individuals are involved in agricultural work. Recently the Laos conducted a major agricultural census which provides an excellent overview of the basic nature of Laos’ agricultural system. The results of this survey indicate that 79.7 percent of the total population is engaged in farming [2] .</p> 
+<p>In the modern drip irrigation systems, the most significant advantage is that water is supplied near the root zone of the plants drip by drip due to which a large quantity of water is saved. At the present era, the farmers have been using irrigation technique in India through the manual control in which the farmers irrigate the land from time to time. This process sometimes consumes more water. There are different types of method for irrigating farm field for different types crop field. Basically Indian farmer use these three methods channel system, sprinkler system, drip system. Channel system is a traditional method of irrigation. But a smart irrigation system is a new technology to irrigating farm field automatically. Drip irrigation is one of the methods of irrigation that saves water and fertilizer. In drip irrigation method, water drips slowly to the roots of the plants either onto the soil surface or directly onto the root zone through a network of valves, pipes, tubing and emitters. The process is completed in narrow tubes so that water is given directly to the root of the plant. Drip irrigation is also termed as localized irrigation or micro irrigation [3] .</p> 
+<p>This paper presents a smart irrigation system for agriculture farm with the use of devices like raspberry pi. Python programming language is used for automation purpose [4] . This paper focuses on developing android based automatic irrigation system capable of controlling many electrical appliances in an irrigation or field using android application. We use Wi-Fi to communicate with Mobile. Soil moisture and temperature are inserted to the farm to monitor and change the current status of field on mobile phone.</p> 
+<p class="E-Title1">2. Literature Review</p> 
+<p>An Android based Automatic Irrigation System using a WSN and GPRS Module is presented by Mahesh Reddy and Raghava Rao [5] . The user communicates with the Arduino microcontroller through SMS. Android automatic system is developed, it displays the values of the sensors continuously in an android application and on a web page and user can control the motor pump ON/OFF from any place, while user receives an SMS alert through GSM/GPRS module.</p> 
+<p>Gavali et al. [6] developed a Smart Irrigation System for Agriculture Base on Wireless Sensors. Their system has a soil moisture and temperature sensor. Each wireless sensor node was comprised of a soil moisture probe, a temperature sensor probe, a microcontroller for acquisition of data, and a radio transceiver. The receiver unit comprises a master microcontroller, radio transceiver, GSM and a pump. The communication link between the transmitter and receiver units is via the ZigBee protocol. Irrigation scheduling could be monitored using an Android Application. Darshna et al. [7] invented Solar Powered Smart Irrigation System with advance in Electronic and Electric Engineering. This system conserves electricity by reducing the usage of grid power and cost effective solar power can be the answer for all energy needs. It can be a suitable alternative for farmers in the present state of energy crisis. It optimizes the usage of water by reducing wastage and reduces the human intervention for farmers.</p> 
+<p>Hambarde [8] developed an Android based Automated Irrigation System using Rasspberry Pi that controls the activities of drip irrigation system efficiently. Moreover, Ata et al. [9] worked on Web Based Automatic Irrigation System Using Wireless Sensor Network and Embedded Linux Board. The aim of their study was to control devices and monitor the system remotely through a web page.</p> 
+<p>Parameswaran [10] proposed Aurdino based smart irrigation system using Internet of Things. The researcher has not used Raspberry pi instead the work is done using Aurdino controller without use of soil moisture sensors.</p> 
+<p class="E-Title1">3. Proposed Block Diagram</p> 
+<p><a href="#f1" target="_self">Figure 1</a> is an overall block diagram of Raspberry Pi based automatic irrigation system which consist of two sensors connected to controller and the values from these sensors send to Android application .This various monitoring and controlling system can be utilized where automation of agricultural parameters like temperature and soil moisture are monitored and control by the system. To understand the functioning of the above mentioned block diagram, we explain the function of its components in the following paragraphs.</p> 
+<div class="Css_sac"> 
+ <p class="imgGroupCss_v"><img class=" imgMarkCss lazy" data-original="//html.scirp.org/file/83708x2.png" /></p> 
+ <p class=" sacImgMarkCss"><a name="f1" id="f1"><span class="cs_fig_con">Figure 1</span></a>. Block Diagram of smart irrigation system.</p> 
+</div> 
+<p class="E-Title2">3.1. Soil Moisture Sensor</p> 
+<p>The soil moisture sensor is used to measure the volumetric water content of soil. It is used to monitor soil moisture content to control irrigation in greenhouse. A moisture sensor is used to sense the level of moisture content present in irrigation field. It has a level detection module in which we can set a reference value [11] .</p> 
+<p class="E-Title2">3.2. Temperature Sensor (LM35)</p> 
+<p>The LM35 series are precision integrated-circuit temperature devices with an output voltage linearly-proportional to the Centigrade temperature. The LM35 device has an advantage over linear temperature sensors calibrated in Kelvin, as the user is not required to subtract a large constant voltage from the output to obtain convenient Centigrade scaling [3] .</p> 
+<p class="E-Title2">3.3. Raspberry Pi</p> 
+<p>The Raspberry Pi is a low cost, credit-card sized computer. Its capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, making spreadsheets, and playing games. There are different models of Raspberry Pi from Raspberry Pi 0 to Raspberry Pi 3. In this project we are using Raspberry Pi Model 1 B+ [3] .</p> 
+<p class="E-Title2">3.4. Relay</p> 
+<p>The relay module is an electrically operated switch that allows you to turn on or off a circuit using voltage and/or current much higher than a microcontroller could handle [3] .</p> 
+<p class="E-Title2">3.5. Wi-Fi</p> 
+<p>The Wi-Fi makes Internet of things devices cable free [12] . Specifications:</p> 
+<p>1) Wireless Standards: IEEE 802.11n, IEEE 802.11g, IEEE 802.11b</p> 
+<p>2) Frequency Band: 2.4/5 GHz Dual Band</p> 
+<p>3) Data Rate: 802.11ac: wireless transmission rate up to 300 M + 300 M</p> 
+<p class="E-Title2">3.6. Android Application</p> 
+<p>Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open source software and designed primarily for touch screen mobile devices such as smart phones and tablets. In addition, Google has further developed Android TV for televisions, Android Auto for cars and Android Wear for wrist watches, each with a specialized user interface. Variants of Android are also used on game consoles, digital cameras, PCs and other electronics [13] .</p> 
+<p class="E-Title1">4. System Working</p> 
+<p>It consist of different types of sensing units such as Soil moisture sensor to measure water content of soil, temperature sensor to detect the temperature (<a href="#f2" target="_self">Figure 2</a>).</p> 
+<p>The android based on an automatic irrigation system which performs multiple operations in the field of agriculture, this project uses a Raspberyy Pi microcontroller which is programmed to receive the input signal of multiple sensors of the field. One Raspberyy Pi microcontroller receives this signal; it generates an output that drives a relay for operating the water pump.</p> 
+<p>If user sees the soil moisture value is below the threshold or the temperature exceeds the threshold value then the user will turn on motor through an Android application until the levels of moisture and temperature are optimized and then turn off motor. Android mobile operating system is interfaced with the Raspberyy Pi microcontroller to control the parameters of the field. The soil moisture and temperature sensor insert into the field. Connections from the soil moisture and temperature sensor are interfaced to the microcontroller. This signal is sent to mobile which displays the sensor values and switch ON/OFF to user.</p> 
+<p class="E-Title1">5. Advantages</p> 
+<p>The design is low cost in terms of hardware component this system avoids over use of water in irrigation, under irrigation and reduces the wastage of water and it can be implemented in large agricultural areas. The system helps in labor problem when there are no labors to work and eliminates man power. This system can be operated automatically as well as manually.</p> 
+<p class="E-Title1">6. Conclusion</p> 
+<p>This paper designs an automated irrigation system to water the crop uniform by analyzing the soil parameters, and it will optimize the usage of water by reducing</p> 
+<div class="Css_sac"> 
+ <p class="imgGroupCss_v"><img class=" imgMarkCss lazy" data-original="//html.scirp.org/file/83708x3.png" /></p> 
+ <p class=" sacImgMarkCss"><a name="f2" id="f2"><span class="cs_fig_con">Figure 2</span></a>. Pictorial representation.</p> 
+</div> 
+<p>wastage. By providing Android application the user can monitor and control the water requirement in the farm, the system will minimize the human intervention and also provide Lao farmers a low cost automatic system for irrigation and increase the crop productivity.</p> 
+<p class="E-Title1">Acknowledgements</p> 
+<p>The authors would like to address their thanks to the anonymous reviewers for considerable comments and suggestions that they provided to improve the quality of the paper. They are deeply indebted to the friends and colleagues for their encouragement during writing this paper.</p>
+            </div>
+
+        
+         
+
+            <div style="margin-top: 10px;">
+                <p style="font-size: 16px; font-weight: bold;">Conflicts of Interest</p>
+                <p style="text-align: justify;">The authors declare no conflicts of interest.</p>
+            </div>
+     
+
+            <div style="margin-top: 10px;">
+                <p style="font-size: 16px; font-weight: bold;">
+                    <a name="reference" style="color: #2f2f2f;">References</a>
+                </p>
+                <p>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="text-align: left; word-break: break-word; ">
+                        
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250603' target='_blank'>1</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref1" id="ref1"></a>
+                                        http://countrystudies.us/laos/45.htm
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250604' target='_blank'>2</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref2" id="ref2"></a>
+                                        http://www.nationsencyclopedia.com/economies/Asia-and-the-Pacific/Laos-AGRICULTURE.html
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250605' target='_blank'>3</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref3" id="ref3"></a>
+                                        Suprabha, J. and Shailesh, H. (2014) Android based Automated Irrigation System using Raspberry Pi. International Journal of Science and Research, 5, Issue 6.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250606' target='_blank'>4</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref4" id="ref4"></a>
+                                        Bhagyashree, K., Chate and Rana, J.G. (2016) Smart Irrigation System Using Raspberry Pi. International Research Journal of Engineering and Technology, 3, Issue 5
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250607' target='_blank'>5</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref5" id="ref5"></a>
+                                        Mahesh, A. Reddy, Raghava Rao, K. (2016) An Android based Automatic Irrigation System Using a WSN and GPRS Module. Indian Journal of Science and Technology, 9, Issue 30. <br/>https://doi.org/10.17485/ijst/2016/v9i30/98719
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250608' target='_blank'>6</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref6" id="ref6"></a>
+                                        Gavali, M.S., Dhus, B.J. and Vitekar, A.B. (2016) A Smart Irrigation System for Agriculture Base on Wireless Sensors. International Journal of Innovative Research in Science, Engineering and Technology, 5, Issue 5.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250609' target='_blank'>7</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref7" id="ref7"></a>
+                                        Harishankar, S., Kumar, R.S., Sudharsan, K.P., Vignesh, U. and Viveknath, T. (2014) Solar Powered Smart Irrigation System. Advance in Electronic and Electric Engineering, 4, 341-346.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250610' target='_blank'>8</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref8" id="ref8"></a>
+                                        Jadhav, S. and Hambarde, H. (2016) Android Based Automated Irrigation System using Rasspberry Pi. International Journal of Science and Research, 5, Issue 6.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250611' target='_blank'>9</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref9" id="ref9"></a>
+                                        Ata, S.R. (2016) Web Based Automatic Irrigation System Using Wireless Sensor Network and Embedded Linux Board. International Journal of Advancement in Engineering Technology Management & Applied Science, 3, Issue 2.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250612' target='_blank'>10</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref10" id="ref10"></a>
+                                        Parameswaran, G. and Sivaprasath, K. (2016) Arduino Based Smart Drip Irrigation System Using Internet of Things. International Journal of Engineering Science and Computing, 6, Issue 5.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250613' target='_blank'>11</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref11" id="ref11"></a>
+                                        Rohit, S., Alshy, S. and Rohit, T. (2016) Smart Irrigation System Using Mobile Phone. International Research Journal of Engineering and Technology, 3, Issue 4.
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250614' target='_blank'>12</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref12" id="ref12"></a>
+                                        http://www.goodluckbuy.com/tp-link-tl-wdr3320-600m-2-4-5ghz-dual-band-wireless-network-router-4-antenna.html
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td width="45" valign="top">
+                                        [<a href='../reference/referencespapers?referenceid=2250615' target='_blank'>13</a>]
+                                    </td>
+                                    <td valign="top" style="word-wrap:break-word; word-break: break-all;">
+                                        <a target="_self" name="ref13" id="ref13"></a>
+                                        https://en.wikipedia.org/wiki/Android_(operating_system)
+                                    </td>
+                                </tr>
+                            
+                    </table>
+                </p>
+            </div>
+
+        </div>
+
+
+
+
+
+    
+
+    
+    <link href="../css/html.css?timestamp=202406191152479435" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="../js/lazyload.js?timestamp=202406191152479435"></script>
+    <script type="text/javascript" src="../js/ref.js?timestamp=202406191152479435"></script>
+    
+
+
+    <script type="text/javascript"  src="../js/htmlinsert.js?timestamp=202406191152479435""></script>
+<script type="text/javascript" >
+
+    window.onload = function () {
+        var device = tools.currDevice()
+        // ipad mobile 和 ipad true
+        // iphone mobile 和 iphone true
+        // android mobile 和 android true
+        if (device.isMobile && (device.iphone || device.android)) {
+            return false;
+        }
+        tools.replaceNode()
+    }
+</script>
+
+
+<script src="https://www.scirp.org/js/crossmark_widget.js" type="text/javascript"></script>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 column col-md-pull-9">
+                    <div class="row clearfix bg_w visible-md visible-lg">
+                        <div class="title_up">Journals Menu</div>
+                        <div class="column txt3">
+                            
+
+<ul class="list-unstyled">
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/journalarticles?journalid=2463" target="_top">&nbsp;&nbsp;Articles</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/home?journalid=2463" target="_top">&nbsp;&nbsp;Archive</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/indexing?journalid=2463" target="_top">&nbsp;&nbsp;Indexing</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/aimscope?journalid=2463" target="_top">&nbsp;&nbsp;Aims & Scope</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/editorialboard?journalid=2463"  target="_top">&nbsp;&nbsp;Editorial Board</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/forauthors?journalid=2463"  target="_top">&nbsp;&nbsp;For Authors</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/apc?journalid=2463" target="_top">&nbsp;&nbsp;Publication Fees</a></li>
+</ul>
+
+                        </div>
+                    </div>
+
+                    <div class="row clearfix bg_w visible-xs visible-sm">
+                        <div class="panel-group column" id="accordion" style="margin-bottom: 0;">
+                            <div class="panel panel-default" style="border: none;">
+                                <div class="panel-heading" style="background: #fff; padding: 0; margin: 0;">
+                                    <h4 class="panel-title">
+                                        <a class="link1" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Journals Menu&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body txt3" style="padding: 10px 0 0 0;">
+                                        
+
+<ul class="list-unstyled">
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/journalarticles?journalid=2463" target="_top">&nbsp;&nbsp;Articles</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/home?journalid=2463" target="_top">&nbsp;&nbsp;Archive</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/indexing?journalid=2463" target="_top">&nbsp;&nbsp;Indexing</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/aimscope?journalid=2463" target="_top">&nbsp;&nbsp;Aims & Scope</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/editorialboard?journalid=2463"  target="_top">&nbsp;&nbsp;Editorial Board</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/forauthors?journalid=2463"  target="_top">&nbsp;&nbsp;For Authors</a></li>
+    <li><i class="fa fa-chevron-right" style="color: #d71318;"></i><a href="../journal/apc?journalid=2463" target="_top">&nbsp;&nbsp;Publication Fees</a></li>
+</ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     
+                    <div id="relatedArticles"></div>
+                    <div id="div_sep" class="row clearfix bg_w">
+                       
+
+<div class="column left_link1">
+    <ul class="list-unstyled">
+        <li><a href="../journal/openspecialissues?journalid=2463&PubState=false" target="_blank">
+            Open Special Issues</a></li>
+        <li><a href="../journal/openspecialissues?journalid=2463&PubState=true" target="_blank">
+            Published Special Issues</a></li>
+        <li><a href="../journal/openspecialissuesguideline?journalid=2463" target="_blank">
+            Special Issues Guideline</a></li>
+    </ul>
+</div>
+
+                    </div>
+                    
+
+<div class="row clearfix bg_w">
+    <div class="column right_link1">
+        <ul class="list-unstyled">
+            <li><a href="../journal/newslettersubscription?journalid=2463" target="_blank">
+                E-Mail Alert</a></li>            
+            <li><a href="../journal/subscribejournal?journalid=2463" target="_blank">OALibJ
+                Subscription</a></li>
+            <li><a href="../journal/publicat_ethics_statement?journalid=2463" target="_blank">
+                Publication Ethics & OA Statement</a></li>
+            <li><a href="../journal/faq?journalid=2463" target="_blank">
+                Frequently Asked Questions</a></li>
+            <li><a href="../journal/recommendtopeers?journalid=2463" target="_blank">
+                Recommend to Peers</a></li>
+            <li><a href="../journal/recommendtolibrary?journalid=2463" target="_blank">
+                Recommend to Library</a></li>
+            <li><a href="../journal/contactus?journalid=2463" target="_blank">
+                Contact us</a></li>
+            <li id="UserControl_Reacommend_div_ojuDisclaimer" style="DisPlay:None;"><a href="../journal/disclaimer?journalid=2463" target="_blank">
+                Disclaimer</a></li>
+            <li id="UserControl_Reacommend_div_historyIssue" style="DisPlay:None;"><a href="../journal/historyissue?journalid=2463" target="_blank">
+                History Issue</a></li>
+        </ul>
+    </div>
+</div>
+
+
+                    <div id="journalSponsors"></div>
+
+                    
+                    <div class="row clearfix bg_w">
+                        
+
+
+
+<div class="column">
+    <div class="title_up">Follow SCIRP</div>
+    <div style="padding-top: 10px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="left"><a href="https://twitter.com/Scirp_Papers" class="tooltip-hide" data-toggle="tooltip" data-placement="left" title="Twitter" target="_blank">
+                    <img src="../images/Twitter.svg" height="30" alt="Twitter"></a></td>
+                <td align="left"><a href="https://www.facebook.com/Scientific-Research-Publishing-267429817016644/" class="tooltip-hide" data-toggle="tooltip" data-placement="left" title="Facebook" target="_blank">
+                    <img src="../images/fb.svg" height="30" alt="Facebook"></a></td>
+                <td align="left"><a href="https://www.linkedin.com/company/scientific-research-publishing/" class="tooltip-hide" data-toggle="tooltip" data-placement="left" title="Linkedin" target="_blank">
+                    <img src="../images/in.svg" height="30" alt="Linkedin"></a></td>
+                <td align="left"><a href="http://e.weibo.com/scirp" class="tooltip-hide" data-toggle="tooltip" data-placement="left" title="Weibo" target="_blank">
+                    <img src="../images/weibo.svg" height="30" alt="Weibo"></a></td>
+                
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+                    </div>
+                    <div class="row clearfix bg_w">
+                        
+
+
+
+<div class="column">
+    <div class="title_up">Contact us</div>
+    <div style="padding-top: 5px;">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+                <td style="text-align:left; width:25px;" ><img border='0' src="../images/phone02.jpg"  style="float: left;" /></td>
+                <td style="padding-left:5px;">+1 323-425-8868</td>           
+            </tr>
+            <tr>
+                <td style="text-align:left; width:25px;" ><img border='0' src="../images/emailsrp.png"  style="float: left;" /></td>
+                <td style="padding-left:5px;"><a href="mailto:customer@scirp.org" target="_blank">customer@scirp.org</a></td>           
+            </tr>
+            <tr>
+                <td><img border='0' src="../images/whatsapplogo.jpg" alt='WhatsApp' title='WhatsApp' style="float: left;" /></td>
+                <td style="padding-left:5px;">+86 18163351462(WhatsApp)</td>
+            </tr>
+            <tr>
+                <td><a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin=1655362766&site=qq&menu=yes' rel="nofollow"><img border='0' src="../Images/qq25.jpg" alt='Click here to send a message to me' title='Click here to send a message to me' style="float: left;" /></a></td>
+                <td style="padding-left:5px;"><a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin=1655362766&site=qq&menu=yes' rel="nofollow">1655362766</a></td>
+            </tr>
+            <tr>
+                <td style="vertical-align:top;"><img border='0' src="../images/weixinlogo.jpg"  /></td>
+                <td style="padding-left:5px;"><img border='0' src="../images/weixinsrp120.jpg"  /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding-left:5px;">Paper Publishing WeChat</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="papercopyright">
+            <div id="UserControl_PaperCopyRight_div_showby" class="clearfix text-center" style="border-top: #ccc 2px solid; background: #fff; padding: 10px; margin-top: 10px; font-size: 12px;">
+    <p>Copyright &copy; 2024 by authors and Scientific Research Publishing Inc. </p>
+    <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" title="Creative Commons License" style="border-width: 0" src="../Images/ccby.png" width="88" height="31" /></a></p>
+    <p>This work and the related PDF file are licensed under a <a about="https://doi.org/10.4236/oalib.1104503" rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+</div>
+
+
+        </div>
+        <div id="footer">
+            
+
+
+
+<div style="border-top: #d71318 8px solid; padding: 20px 0; margin-top: 20px;">
+    <div class="container row clearfix center-block" style="padding: 0;">
+        
+
+<script type="text/javascript">
+    function checksubscribe() {
+        
+        var email = $("#UserControl_footer_UserControl_NewsletterSubscription_TextBox_nls_email").val();//Email   id=UserControl_NewsletterSubscription_TextBox_email       
+        if (email == "" || email == "E-mail address") {
+            alert('Please enter an email address!');
+            return false;
+        }
+        var emailRegExp = new RegExp("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+        if (!emailRegExp.test(email) || email.indexOf('.') == -1) {
+            alert('The email address that you entered is invalid!');
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<div class="col-sm-3 column" style="padding-right: 30px;">
+    <span style="margin-bottom: 10px; font-size: 16px; line-height: 1.2em;"><strong>Free SCIRP Newsletters</strong></span>
+    <div style="background: #dddddd; border-radius: 6px; box-shadow: 3px 3px 0px #9f9f9f; padding: 10px; margin-bottom: 10px;">
+
+        <div role="form" class="form-inline">
+            <div id="UserControl_footer_UserControl_NewsletterSubscription_panel_newsletter">
+	
+                <div class="form-group" style="margin-bottom: 5px;">
+                    <span for="name" style="font-size: 12px; line-height: 1.5em; font-weight: bold;">Add your e-mail address to receive free newsletters from SCIRP.</span>
+
+                    <input name="ctl00$UserControl_footer$UserControl_NewsletterSubscription$TextBox_nls_email" type="text" value="E-mail address" id="UserControl_footer_UserControl_NewsletterSubscription_TextBox_nls_email" class="form-control" onFocus="javascript:if(this.value==&#39;E-mail address&#39;) {this.value=&#39;&#39;;}" onBlur="javascript:if(this.value==&#39;&#39;){this.value=&#39;E-mail address&#39;;}" style="width: 100%; background: #fff; border: #2f2f2f 1px solid; border-radius: 0; height: 25px;" />
+                </div>
+
+                <div class="form-group" style="margin-bottom: 5px; width: 100%;">
+
+                    <select name="ctl00$UserControl_footer$UserControl_NewsletterSubscription$DropDownList_journal" id="UserControl_footer_UserControl_NewsletterSubscription_DropDownList_journal" class="form-control" style="width: 100%; height: 25px; border: #2f2f2f 1px solid; border-radius: 0; padding: 0 8px; color: #999;">
+		<option value="0">Select Journal</option>
+		<option value="737">AA</option>
+		<option value="1408">AAD</option>
+		<option value="1406">AAR</option>
+		<option value="1002">AASoci</option>
+		<option value="2423">AAST</option>
+		<option value="164">ABB</option>
+		<option value="611">ABC</option>
+		<option value="1478">ABCR</option>
+		<option value="473">ACES</option>
+		<option value="492">ACS</option>
+		<option value="1579">ACT</option>
+		<option value="2437">AD</option>
+		<option value="2442">ADR</option>
+		<option value="2444">AE</option>
+		<option value="2426">AER</option>
+		<option value="2316">AHS</option>
+		<option value="803">AID</option>
+		<option value="1000">AiM</option>
+		<option value="476">AIT</option>
+		<option value="203">AJAC</option>
+		<option value="2422">AJC</option>
+		<option value="1304">AJCC</option>
+		<option value="535">AJCM</option>
+		<option value="884">AJIBM</option>
+		<option value="532">AJMB</option>
+		<option value="529">AJOR</option>
+		<option value="207">AJPS</option>
+		<option value="996">ALAMT</option>
+		<option value="1517">ALC</option>
+		<option value="2317">ALS</option>
+		<option value="160">AM</option>
+		<option value="477">AMI</option>
+		<option value="675">AMPC</option>
+		<option value="1573">ANP</option>
+		<option value="1574">APD</option>
+		<option value="743">APE</option>
+		<option value="513">APM</option>
+		<option value="1575">ARS</option>
+		<option value="2445">ARSci</option>
+		<option value="191">AS</option>
+		<option value="812">ASM</option>
+		<option value="260">BLR</option>
+		<option value="2455">CC</option>
+		<option value="136">CE</option>
+		<option value="2074">CellBio</option>
+		<option value="1493">ChnStd</option>
+		<option value="122">CM</option>
+		<option value="989">CMB</option>
+		<option value="92">CN</option>
+		<option value="2033">CRCM</option>
+		<option value="173">CS</option>
+		<option value="1492">CSTA</option>
+		<option value="2438">CUS</option>
+		<option value="1518">CWEEE</option>
+		<option value="2454">Detection</option>
+		<option value="2457">EMAE</option>
+		<option value="64">ENG</option>
+		<option value="93">EPE</option>
+		<option value="1311">ETSN</option>
+		<option value="2315">FMAR</option>
+		<option value="208">FNS</option>
+		<option value="2432">GEP</option>
+		<option value="2462">GIS</option>
+		<option value="541">GM</option>
+		<option value="1690">Graphene</option>
+		<option value="512">GSC</option>
+		<option value="65">Health</option>
+		<option value="103">IB</option>
+		<option value="176">ICA</option>
+		<option value="111">IIM</option>
+		<option value="490">IJAA</option>
+		<option value="2449">IJAMSC</option>
+		<option value="1391">IJCCE</option>
+		<option value="202">IJCM</option>
+		<option value="4">IJCNS</option>
+		<option value="209">IJG</option>
+		<option value="2428">IJIDS</option>
+		<option value="747">IJIS</option>
+		<option value="1261">IJMNTA</option>
+		<option value="1578">IJMPCERO</option>
+		<option value="1519">IJNM</option>
+		<option value="527">IJOC</option>
+		<option value="1477">IJOHNS</option>
+		<option value="1298">InfraMatics</option>
+		<option value="1980">JACEN</option>
+		<option value="2436">JAMP</option>
+		<option value="525">JASMI</option>
+		<option value="475">JBBS</option>
+		<option value="2443">JBCPR</option>
+		<option value="30">JBiSE</option>
+		<option value="2435">JBM</option>
+		<option value="230">JBNB</option>
+		<option value="162">JBPC</option>
+		<option value="2431">JCC</option>
+		<option value="530">JCDSA</option>
+		<option value="526">JCPT</option>
+		<option value="125">JCT</option>
+		<option value="2425">JDAIP</option>
+		<option value="479">JDM</option>
+		<option value="531">JEAS</option>
+		<option value="691">JECTC</option>
+		<option value="29">JEMAA</option>
+		<option value="144">JEP</option>
+		<option value="1986">JFCMV</option>
+		<option value="1395">JFRM</option>
+		<option value="114">JGIS</option>
+		<option value="2461">JHEPGC</option>
+		<option value="2421">JHRSS</option>
+		<option value="1411">JIBTVA</option>
+		<option value="102">JILSA</option>
+		<option value="175">JIS</option>
+		<option value="648">JMF</option>
+		<option value="397">JMGBND</option>
+		<option value="1753">JMMCE</option>
+		<option value="172">JMP</option>
+		<option value="2433">JPEE</option>
+		<option value="591">JQIS</option>
+		<option value="990">JSBS</option>
+		<option value="45">JSEA</option>
+		<option value="543">JSEMAT</option>
+		<option value="339">JSIP</option>
+		<option value="2430">JSS</option>
+		<option value="28">JSSM</option>
+		<option value="478">JST</option>
+		<option value="2439">JTR</option>
+		<option value="2460">JTST</option>
+		<option value="357">JTTs</option>
+		<option value="46">JWARP</option>
+		<option value="210">LCE</option>
+		<option value="1485">MC</option>
+		<option value="163">ME</option>
+		<option value="787">MI</option>
+		<option value="786">MME</option>
+		<option value="917">MNSMS</option>
+		<option value="815">MPS</option>
+		<option value="2441">MR</option>
+		<option value="1487">MRC</option>
+		<option value="1576">MRI</option>
+		<option value="174">MSA</option>
+		<option value="2434">MSCE</option>
+		<option value="528">NJGC</option>
+		<option value="205">NM</option>
+		<option value="192">NR</option>
+		<option value="69">NS</option>
+		<option value="2459">OALib</option>
+		<option value="2463">OALibJ</option>
+		<option value="2453">ODEM</option>
+		<option value="738">OJA</option>
+		<option value="1480">OJAB</option>
+		<option value="1590">OJAcct</option>
+		<option value="814">OJAnes</option>
+		<option value="1407">OJAP</option>
+		<option value="1479">OJApo</option>
+		<option value="1003">OJAppS</option>
+		<option value="2446">OJAPr</option>
+		<option value="601">OJAS</option>
+		<option value="806">OJBD</option>
+		<option value="785">OJBIPHY</option>
+		<option value="2447">OJBM</option>
+		<option value="2452">OJC</option>
+		<option value="997">OJCB</option>
+		<option value="606">OJCD</option>
+		<option value="788">OJCE</option>
+		<option value="792">OJCM</option>
+		<option value="1977">OJD</option>
+		<option value="810">OJDer</option>
+		<option value="586">OJDM</option>
+		<option value="614">OJE</option>
+		<option value="1577">OJEE</option>
+		<option value="2456">OJEM</option>
+		<option value="811">OJEMD</option>
+		<option value="816">OJEpi</option>
+		<option value="1979">OJER</option>
+		<option value="736">OJF</option>
+		<option value="1004">OJFD</option>
+		<option value="587">OJG</option>
+		<option value="817">OJGas</option>
+		<option value="613">OJGen</option>
+		<option value="602">OJI</option>
+		<option value="592">OJIC</option>
+		<option value="593">OJIM</option>
+		<option value="793">OJINM</option>
+		<option value="1186">OJL</option>
+		<option value="588">OJM</option>
+		<option value="790">OJMC</option>
+		<option value="784">OJMetal</option>
+		<option value="739">OJMH</option>
+		<option value="820">OJMI</option>
+		<option value="612">OJMIP</option>
+		<option value="742">OJML</option>
+		<option value="999">OJMM</option>
+		<option value="822">OJMN</option>
+		<option value="998">OJMP</option>
+		<option value="596">OJMS</option>
+		<option value="2424">OJMSi</option>
+		<option value="605">OJN</option>
+		<option value="821">OJNeph</option>
+		<option value="804">OJO</option>
+		<option value="604">OJOG</option>
+		<option value="2464">OJOGas</option>
+		<option value="1978">OJOp</option>
+		<option value="805">OJOph</option>
+		<option value="794">OJOPM</option>
+		<option value="823">OJOTS</option>
+		<option value="813">OJPathology</option>
+		<option value="589">OJPC</option>
+		<option value="791">OJPChem</option>
+		<option value="609">OJPed</option>
+		<option value="610">OJPM</option>
+		<option value="741">OJPP</option>
+		<option value="744">OJPS</option>
+		<option value="603">OJPsych</option>
+		<option value="807">OJRA</option>
+		<option value="789">OJRad</option>
+		<option value="824">OJRD</option>
+		<option value="1394">OJRM</option>
+		<option value="590">OJS</option>
+		<option value="735">OJSS</option>
+		<option value="600">OJSST</option>
+		<option value="607">OJST</option>
+		<option value="1486">OJSTA</option>
+		<option value="2448">OJTR</option>
+		<option value="808">OJTS</option>
+		<option value="509">OJU</option>
+		<option value="1001">OJVM</option>
+		<option value="547">OPJ</option>
+		<option value="71">POS</option>
+		<option value="206">PP</option>
+		<option value="2440">PST</option>
+		<option value="148">PSYCH</option>
+		<option value="2450">SAR</option>
+		<option value="533">SCD</option>
+		<option value="135">SGRE</option>
+		<option value="474">SM</option>
+		<option value="1589">SN</option>
+		<option value="491">SNL</option>
+		<option value="2034">Soft</option>
+		<option value="204">SS</option>
+		<option value="666">TEL</option>
+		<option value="104">TI</option>
+		<option value="1405">UOAJ</option>
+		<option value="2458">VP</option>
+		<option value="146">WET</option>
+		<option value="511">WJA</option>
+		<option value="818">WJCD</option>
+		<option value="502">WJCMP</option>
+		<option value="809">WJCS</option>
+		<option value="2451">WJET</option>
+		<option value="506">WJM</option>
+		<option value="615">WJNS</option>
+		<option value="493">WJNSE</option>
+		<option value="534">WJNST</option>
+		<option value="510">WJV</option>
+		<option value="41">WSN</option>
+		<option value="2465">YM</option>
+
+	</select>
+
+
+                </div>
+
+                <input type="submit" name="ctl00$UserControl_footer$UserControl_NewsletterSubscription$btnSubscribe" value="Subscribe" onclick="return checksubscribe();" id="UserControl_footer_UserControl_NewsletterSubscription_btnSubscribe" class="btn btn-default" style="background: #2f2f2f; border-radius: 5px; color: #fff; padding: 2px 4px;" />
+
+
+            
+</div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+        <div class="col-sm-9 column">
+        
+
+
+
+    <div class="row clearfix foot_links">
+        <div class="col-sm-3 col-xs-6 column f_link1" style="margin-bottom: 10px;">
+            <ul class="list-unstyled" >
+                <li><h4><strong><a href="//www.scirp.org/" target="_top">Home</a></strong></h4></li>
+                <li><a href="../journal/indexbytitle" target="_blank">Journals A-Z</a></li>
+                <li><a href="../journal/" target="_blank">Subject</a></li>
+                <li><a href="../book/" target="_blank">Books</a></li>
+                <li><a href="../sitemap/index.xml" target="_blank">Sitemap</a></li>
+                <li><a href="../aboutus/#ContactUs" target="_blank">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6 column f_link1" style="margin-bottom: 10px;">
+            <ul class="list-unstyled">
+                <li><h4><strong><a href="//www.scirp.org/aboutus/" target="_blank">About SCIRP</a></strong></h4></li>
+                <li><a href="../aboutus/publicationfees" target="_blank">Publication Fees</a></li>
+                <li><a href="../aboutus/forauthors" target="_blank">For Authors</a></li>
+                <li><a href="../journal/peer-review" target="_blank">Peer-Review Issues</a></li>
+                <li><a href="../journal/callforspecialissueproposals" target="_blank">Special Issues</a></li>
+                <li><a href="../news/" target="_blank">News</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6 column f_link2" style="margin-bottom: 10px;">
+            <ul class="list-unstyled">
+                <li><h4><strong><a href="//www.scirp.org/careers/" target="_blank">Service</a></strong></h4></li>
+                <li><a href="//papersubmission.scirp.org" target="_blank">Manuscript Tracking System</a></li>
+                <li><a href="../aboutus/subscription" target="_blank">Subscription</a></li>
+                <li><a href="../author/" target="_blank">Translation & Proofreading</a></li>
+                <li><a href="../aboutus/faq" target="_blank">FAQ</a></li>
+                <li><a href="//www.scirp.org/journalvolume.html" target="_blank">Volume & Issue</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3 col-xs-6 column f_link3" style="margin-bottom: 10px;">
+            <ul class="list-unstyled">
+                <li><h4><strong><a href="//www.scirp.org/aboutus/policies" target="_blank">Policies</a></strong></h4></li>
+                <li><a href="../journal/openaccess" target="_blank">Open Access</a></li>
+                <li><a href="../aboutus/publicationethics" target="_blank">Publication Ethics</a></li>
+                <li><a href="../aboutus/preservation" target="_blank">Preservation</a></li>
+                <li><a href="../aboutus/retraction" target="_blank">Retraction</a></li>
+                <li><a href="../aboutus/privacypolicy" target="_blank">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+            </div>
+    </div>
+</div>
+
+
+
+
+
+<div style="background: #dddddd; line-height: 2em; padding: 10px; color: #666;">
+    <div class="text-center">
+        Copyright &copy; 2006-2024 Scientific Research Publishing Inc. All Rights Reserved.    
+    </div>
+</div>
+
+<a href="#0" class="cd-top">Top</a>
+
+
+
+
+
+        </div>
+
+        <input type="hidden" name="ctl00$Hidden_JournalID" id="Hidden_JournalID" />
+    </form>
+
+
+
+        <script type="text/javascript">
+            $.ajax({
+                type: "GET",
+                url: "relatedarticles?paperid=" +83708 +"&timspan=" + new Date().getTime(),
+            async: true,
+            error: function (msg) {
+                result = msg;
+            },
+            success: function (msg) {
+                $("#relatedArticles").html(msg);
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+        $.ajax({
+            type: "GET",
+            url: "journalsponsor?journalid=" +2463 +"&timspan=" + new Date().getTime(),
+            async: true,
+            error: function (msg) {
+                result = msg;
+            },
+            success: function (msg) {
+                $("#journalSponsors").html(msg);
+            }
+        });
+    </script>
+
+
+
+
+
+    <script type="text/javascript">
+        $.ajax({
+            type: "GET",
+            url: "paperviewsdownloads?journalid=" +2463 +"&paperid=" +83708 +"&timspan=" + new Date().getTime(),
+            async: true,
+            error: function (msg) {
+                result = msg;
+            },
+            success: function (msg) {
+
+            }
+        });
+    </script>
+
+
+
+
+
+
+    <!-- jQuery Frameworks    ============================================= -->
+    <script src="../js/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/main.js" type="text/javascript"></script>
+    <script type="text/javascript"  defer="defer" src="//www.scirp.org/js/gtm.js"></script>
+
+   
+
+
+<script type="text/javascript" src="../js/viewer.min.js" ></script>
+<link rel="stylesheet" href="../css/viewer.min.css"  />
+<script type="text/javascript">
+    $(function () {
+        try {
+            $("img.lazy").lazyload();
+        } catch (e) {
+
+        }
+
+    });
+    $(function () {
+        try {
+            var images = document.querySelectorAll('.lazy');
+            images.forEach(function (image) {
+                new Viewer(image, {
+                    // 在这里定义您的 Viewer 配置选项，和之前示例相同
+                    title: false,
+                    navbar: false,
+                    // ...其他配置
+                });
+            });
+        } catch (e) {
+
+        }
+
+    });
+</script>
+
+
+</body>
+
+
+
+</html>

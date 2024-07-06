@@ -17,13 +17,16 @@ class LLM:
     def __init__(self) -> None:
         self.model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
-    def inference(self,prompt, *args,image=False):
+    def inference(self,prompt, *args,image=False,explicit_image=False):
         # takes in prompt and returns response from llm 
         start_time = time.time()
         if image:
             take_screenshot()
             image = PIL.Image.open(SCREENSHOT_FILENAME)
             response = self.model.generate_content([prompt,image, *args])
+        elif explicit_image:
+            explicit_image = PIL.Image.open(explicit_image)
+            response = self.model.generate_content([prompt,explicit_image, *args])
         else:
             response = self.model.generate_content([prompt, *args])
         

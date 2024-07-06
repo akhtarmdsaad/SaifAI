@@ -17,7 +17,9 @@ Here is the list of agents with their specific works:
 You are only allowed to give response in the following format: 
 ```json 
 {
-    "agent_name":"<only one agent name here>"
+    "agent_name": "< only one agent name here> ",
+    "response": "<Your human like response here>",
+    "prompt": "< a good, well explained prompt for the agent >"
 } 
 ``` 
 
@@ -27,3 +29,6 @@ Rules:
 - choose only a single agent that is most likely going to do the work. 
 - Any answer must strictly follow the specified format; deviations will be rejected.
 - agents name only contains lowercase alphabets
+- Read the converstion carefully to understand the user's prompt.
+- if agent is chatterbot, you can respond like a chatterbot in the response field. otherwise leave the response field empy
+- Make sure to provide a good prompt for the agent to understand the task.
