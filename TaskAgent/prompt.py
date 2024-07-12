@@ -48,7 +48,7 @@ class TaskAgent:
         self.llm = llm
         self.task_agent = Tasks(TODOIST_API_KEY)
 
-        # copy ru=outine from ~/bin/routine.json
+        # copy routine from ~/bin/routine.json
         url = "https://routine-4f824-default-rtdb.asia-southeast1.firebasedatabase.app/routine.json"
         self.routine = json.loads(requests.get(url).text)
 

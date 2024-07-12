@@ -1,4 +1,4 @@
-# NOTE: These file names must be unique to avoid overwriting files
+# NOTE: These file names must be unique to avoid overwriting of files
 
 SCREENSHOT_FILENAME = "screenshot.png"
 AUDIO_FILENAME = "speak_bro.mp3"
