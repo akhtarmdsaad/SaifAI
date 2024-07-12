@@ -4,7 +4,7 @@ import json
 from jinja2 import BaseLoader, Environment
 import requests
 from TaskAgent.tasks import Tasks
-from private import TODOIST_API_KEY
+from private import TODOIST_API_KEY, ROUTINE_JSON_URL
 
 PROMPT = open("TaskAgent/prompt.jinja2", "r").read().strip()
 
@@ -46,24 +46,31 @@ def get_current_key(l):
 class TaskAgent:
     def __init__(self,llm) -> None:
         self.llm = llm
+        if not TODOIST_API_KEY:
+            self.task_agent = None
         self.task_agent = Tasks(TODOIST_API_KEY)
 
         # copy routine from ~/bin/routine.json
-        url = "https://routine-4f824-default-rtdb.asia-southeast1.firebasedatabase.app/routine.json"
-        self.routine = json.loads(requests.get(url).text)
+        url = ROUTINE_JSON_URL
+        try:
+            self.routine = json.loads(requests.get(url).text)
 
-        # filter json into dict 
+            # filter json into dict 
 
-        self.keys=list(self.routine.keys())
-        self.keys.sort(key=lambda x: sorting_key(x))
+            self.keys=list(self.routine.keys())
+            self.keys.sort(key=lambda x: sorting_key(x))
 
-        sorted_dict = {i: self.routine[i] for i in self.keys}
-        self.routine = sorted_dict
+            sorted_dict = {i: self.routine[i] for i in self.keys}
+            self.routine = sorted_dict
+        except:
+            self.routine = {}
 
 
 
     def get_tasks(self):
         # return only titles 
+        if self.task_agent is None:
+            return []
         tasks = self.task_agent.get_tasks()
         return [task["title"] for task in tasks]
     
@@ -100,6 +107,8 @@ class TaskAgent:
             return (response["response"],response["command"],response["task_title"])
 
     def execute(self,prompt,conversations="",last_response=""):
+        if self.task_agent is None:
+            return ("Sorry, I am not able to manage your tasks. Please provide me with the TODOIST_API_KEY in the private.py file.", "NONE", "")
         prompt = self.render(prompt=prompt, conversations=conversations, last_response=last_response)
 
         response = self.llm.inference(prompt)

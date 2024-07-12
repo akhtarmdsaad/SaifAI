@@ -1,9 +1,13 @@
 from private import OPEN_WEATHER_API_KEY, MY_CITY
 class Weather:
     def __init__(self):
+        if not OPEN_WEATHER_API_KEY:
+            self.url = ""
         self.url = "https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     
     def search(self, city=MY_CITY):
+        if not self.url:
+            return str({"status": "Weather API key is not provided"})
         import requests
         response = requests.get(self.url.format(city=city, api_key=OPEN_WEATHER_API_KEY))
         weather_dict = response.json()

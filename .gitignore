@@ -8,7 +8,6 @@ notes/
 # screenshot
 *screenshot.png
 venv/
-private.py
 __pycache__/
 practice/
 todo.md
