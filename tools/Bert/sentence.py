@@ -1,3 +1,5 @@
+import time
+st = time.time()
 from keybert import KeyBERT
 
 class SentenceBert:
@@ -5,7 +7,7 @@ class SentenceBert:
         self.sentence = sentence
         self.kw_model = KeyBERT()
 
-    def extract_keywords(self, top_n: int = 5) -> list:
+    def extract_keywords(self, top_n: int = 100) -> list:
         keywords = self.kw_model.extract_keywords(
             self.sentence,
             keyphrase_ngram_range=(1, 1),
@@ -17,7 +19,13 @@ class SentenceBert:
         return keywords
 
 if __name__ == "__main__":
-    sentence = "download 5 research papers on topic automatic irrigation system"
-    sb = SentenceBert(sentence)
-    keywords = sb.extract_keywords()
-    print(keywords)
+    sentence = "i am stuck"
+    sentence2 = "and also"
+    print(time.time()-st)
+    st = time.time()
+    print(SentenceBert(sentence).extract_keywords())
+    print(time.time()-st)
+    st = time.time()
+    print(SentenceBert(sentence2).extract_keywords())
+    print(time.time()-st)
+    

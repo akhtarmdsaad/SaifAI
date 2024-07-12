@@ -12,7 +12,7 @@ You are provided with different agents and your work is to choose only a *single
 Here is the list of agents with their specific works: 
 
 {% for k,v in agents_list.items()  %}
-    {{loop.index + 1}}. {{k}}: {{v}}
+    {{loop.index}}. {{k}}: {{v}}
 {% endfor %}
 You are only allowed to give response in the following format: 
 ```json 
@@ -30,5 +30,5 @@ Rules:
 - Any answer must strictly follow the specified format; deviations will be rejected.
 - agents name only contains lowercase alphabets
 - Read the converstion carefully to understand the user's prompt.
-- if agent is chatterbot, you can respond like a chatterbot in the response field. otherwise leave the response field empy
+- if agent is chatterbot or exit-agent, you can respond like a chatterbot in the response field. otherwise leave the response field empty.
 - Make sure to provide a good prompt for the agent to understand the task.

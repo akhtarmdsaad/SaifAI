@@ -2,6 +2,9 @@ import json
 import time
 import pyaudio
 import speech_recognition as sr
+import time
+from vosk import Model, KaldiRecognizer
+import pyaudio
 
 from tools.speak import speak 
 
@@ -36,94 +39,20 @@ def takeCommand():
      
     return query
 
-def takeVoskCommandOld():
-    from vosk import Model, KaldiRecognizer
-    r = sr.Recognizer()
-    model = Model("/Users/saad/Downloads/vosk-model-small-en-in-0.4")
-    # model = Model("/Users/saad/Downloads/vosk-model-en-us-0.22")
-
-    recogniser = KaldiRecognizer(model, 16000)
-    mic = pyaudio.PyAudio()
-
-    stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
-
-    stream.start_stream()
-
-    print("Speak")
-    started = False
-    text_string = ""
-    while True:
-        data = stream.read(1024, exception_on_overflow = False)
-        
-        if recogniser.AcceptWaveform(data):
-            print("Analysing...")
-            starttime = time.time()
-            text = recogniser.Result()
-            print("Analysed. time:",time.time()-starttime)
-            text = json.loads(text)["text"]
-            text_string += text + " "
-            print(text, end=" ")
-            if not text and started:
-                break 
-            elif not started and text:
-                started = True
-    print()
-    stream.close()
-    return text_string
-
-def takeVoskCommand1():
-    from vosk import Model, KaldiRecognizer
-    import speech_recognition as sr
-    import pyaudio
-    
-    r = sr.Recognizer()
-    model = Model("/Users/saad/Downloads/vosk-model-small-en-in-0.4")
-    # model = Model("/Users/saad/Downloads/vosk-model-en-us-0.22")
-    recogniser = KaldiRecognizer(model, 16000)
-    mic = pyaudio.PyAudio()
-    stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
-    stream.start_stream()
-    print("Speak")
-    started = False
-    text_string = ""
-    
-    while True:
-        data = stream.read(4096)
-        if recogniser.AcceptWaveform(data):
-            result = recogniser.Result()
-            text = result[14:-3]  # Extract the recognized text from the JSON result
-            if len(text) > 0:
-                if not started:
-                    print("Started listening...")
-                    started = True
-                text_string += text + " "
-            else:
-                if started:
-                    print("Stopped listening.")
-                    break
-    
-    stream.stop_stream()
-    stream.close()
-    mic.terminate()
-    
-    return text_string.strip()
-
-import time
-from vosk import Model, KaldiRecognizer
-import pyaudio
 
 # model = Model("/Users/saad/Downloads/vosk-model-small-en-in-0.4")
 # model = Model("/Users/saad/Downloads/vosk-model-en-us-0.22")
 model = Model("/Users/saad/Downloads/vosk-model-en-in-0.5")
 recognizer = KaldiRecognizer(model, 16000)
 
-mic = pyaudio.PyAudio()
-stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
+
 
 def takeVoskCommand():
     text_string = ""
     last_speech_time = time.time()
-    silence_threshold = 5  # seconds of silence to stop listening
+    silence_threshold = 3  # seconds of silence to stop listening
+    mic = pyaudio.PyAudio()
+    stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
     while True:
         data = stream.read(4096, exception_on_overflow=False)
         if recognizer.AcceptWaveform(data):
@@ -138,6 +67,9 @@ def takeVoskCommand():
             if time.time() - last_speech_time > silence_threshold:
                 print("Stopped listening due to silence.")
                 break
+    stream.stop_stream()
+    stream.close()
+    mic.terminate()
     
     return text_string.strip()
 

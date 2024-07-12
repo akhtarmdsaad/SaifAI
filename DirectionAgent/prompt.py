@@ -14,8 +14,9 @@ class DirectionAgent:
             "note-taker": "Gets the context, create files and write important notes in there.",
             "task-agent": "Helps the user manage their tasks. Add, delete, and list the tasks.\nIt also have the user's routine that tells what the user is supposed to do now.",
             "realtime-agent": "Provides the real time information like time, weather, news etc.",
-            "browser-agent": "Helps the user to search the web and get the information from the web.\nNOTE:This agent takes long time to get the information. Choose this agent wisely."
+            "exit-agent": "Exits the conversation."
         }
+            # "browser-agent": "Helps the user to search the web and get the information from the web.\nNOTE:This agent takes long time to get the information. Choose this agent wisely.",
     
     def render(self,prompt, conversation):
         env = Environment(loader=BaseLoader())

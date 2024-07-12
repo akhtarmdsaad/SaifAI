@@ -13,3 +13,12 @@ __pycache__/
 practice/
 todo.md
 test.py
+downloads/
+
+# currently working on it
+BrowserAgent/ 
+crawler_ai/
+prob*.md
+*.html
+*.mp3
+dir*.py
