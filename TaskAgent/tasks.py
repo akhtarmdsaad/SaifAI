@@ -14,7 +14,9 @@ class Tasks:
             })
 
     def add_task(self, title, priority):
-        
+        if not title:
+            return
+
         # add task to todoist 
         task = self.api.add_task(
             content=title,

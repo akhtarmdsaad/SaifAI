@@ -2,13 +2,22 @@
 *.log
 *.txt
 logs/
-llm_logs/
+llm_log*
 notes/
 
 # screenshot
-screenshot.png
+*screenshot.png
 venv/
-private.py
 __pycache__/
 practice/
 todo.md
+test.py
+downloads/
+
+# currently working on it
+BrowserAgent/ 
+crawler_ai/
+prob*.md
+*.html
+*.mp3
+dir*.py
